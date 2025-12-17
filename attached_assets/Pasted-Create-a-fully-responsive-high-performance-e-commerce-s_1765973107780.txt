@@ -1,0 +1,131 @@
+Create a fully responsive, high-performance e-commerce style website for selling fishing flies, built using HTML5, Bootstrap 5, CSS3, and vanilla JavaScript only (no heavy frameworks).
+
+The website must have a strong aquatic / fly-fishing aesthetic, using blue, teal, aqua, and white tones, smooth gradients, water-inspired backgrounds, and clean modern typography.
+
+🔹 Website Goals
+
+SEO-optimized to rank highly on Google and other search engines
+
+Extremely fast loading (image compression, lazy loading, minimal JS)
+
+Conversion-focused for placing orders via WhatsApp, email, and phone calls
+
+Fully mobile-first and responsive across all devices
+
+🔹 Categories (Each must have its own SEO-optimized page)
+
+Create individual category pages with clean URLs, optimized metadata, and internal linking for the following categories:
+
+Dry Flies
+
+Parachutes
+
+Nymphs
+
+Emergers
+
+Midges
+
+Beadhead (BH) Nymphs
+
+Tungsten Nymphs
+
+Terrestrials
+
+Bob Brooks Patterns
+
+Shane Stalcup Patterns
+
+Skip Morris Patterns
+
+Rene Harrop Patterns
+
+Streamers
+
+Beadhead (BH) Streamers
+
+Czech Nymphs
+
+Warmwater Flies
+
+Poppers
+
+Steelhead Flies
+
+Saltwater Flies
+
+🔹 Page Structure Requirements
+
+Home Page
+
+Hero section with aquatic background and call-to-action
+
+Featured categories grid
+
+Why choose our hand-tied flies section
+
+WhatsApp “Order Now” CTA
+
+Category Pages
+
+One <h1> per page with keyword targeting
+
+300–600 words of SEO-friendly content explaining the fly type
+
+Product cards with optimized images
+
+Clear “Order via WhatsApp” buttons
+
+Contact Page
+
+WhatsApp ordering link
+
+Email address
+
+Phone number (click-to-call)
+
+Offline order information
+
+🔹 SEO Requirements (Mandatory)
+
+Optimized <title> and <meta description> for every page
+
+Proper heading hierarchy (H1 → H2 → H3)
+
+Descriptive ALT text for all images
+
+Clean URLs (example: /dry-flies.html)
+
+Internal linking between categories
+
+Blog-ready structure for future SEO articles
+
+🔹 Performance Optimization
+
+All images must be compressed (WebP preferred)
+
+Lazy loading for images
+
+Bootstrap via CDN
+
+Minified CSS & JavaScript
+
+No unnecessary animations or heavy scripts
+
+🔹 UI / UX Design
+
+Modern card-based layout
+
+Smooth hover effects
+
+Floating WhatsApp button visible on all pages
+
+Clear typography suitable for outdoor/fishing brands
+
+Elegant aquatic icons and visual elements
+
+🔹 Technical Constraints
+
+Use only HTML, Bootstrap, CSS, and JavaScript
+
+SEO-friendly static site ... include search functionalities 
