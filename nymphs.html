@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
@@ -289,7 +289,7 @@
         font-size: 0.9rem;
       }
 
-      /* Product Grid - MORE ITEMS READY FOR IMAGES */
+      /* Product Grid - UPDATED FOR BETTER RESPONSIVE DESIGN */
       .product-grid {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
@@ -304,6 +304,8 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         transition: var(--transition);
         height: 100%;
+        display: flex;
+        flex-direction: column;
       }
 
       .product-grid-item:hover {
@@ -311,24 +313,45 @@
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       }
 
-      /* IMAGE PLACEHOLDER FOR YOU TO FILL */
-      .product-grid-img {
-        height: 180px;
+      /* IMAGE CONTAINER - UPDATED */
+      .product-img-container {
+        height: 200px;
         width: 100%;
+        position: relative;
+        overflow: hidden;
+        background-color: #f8f9fa;
+      }
+
+      .product-img-container img {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        background-color: #f0f0f0;
+        transition: transform 0.5s ease;
+      }
+
+      .product-grid-item:hover .product-img-container img {
+        transform: scale(1.05);
+      }
+
+      .product-img-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-      }
-
-      .product-grid-img-placeholder {
-        color: #ccc;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color: #999;
         font-size: 3rem;
       }
 
       .product-grid-body {
         padding: 15px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
       }
 
       .product-grid-title {
@@ -337,6 +360,7 @@
         color: var(--primary-blue);
         margin-bottom: 8px;
         line-height: 1.3;
+        min-height: 2.6em;
       }
 
       .product-grid-meta {
@@ -358,6 +382,13 @@
         background: #f8f9fa;
         padding: 3px 8px;
         border-radius: 4px;
+      }
+
+      .product-description {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        flex-grow: 1;
       }
 
       /* Pagination */
@@ -469,6 +500,7 @@
         letter-spacing: 0.5px;
         font-size: 0.85rem;
         width: 100%;
+        margin-top: auto;
       }
 
       .btn-whatsapp:hover {
@@ -478,7 +510,7 @@
         box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
       }
 
-      /* Footer */
+      /* Footer - UPDATED TO MATCH STREAMERS PAGE */
       .footer {
         background-color: var(--dark-bg);
         color: var(--text-light);
@@ -530,6 +562,7 @@
         border-radius: 50%;
         color: white;
         transition: var(--transition);
+        text-decoration: none;
       }
 
       .footer-social a:hover {
@@ -544,6 +577,19 @@
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         color: rgba(255, 255, 255, 0.6);
         font-size: 0.8rem;
+      }
+
+      /* Payment Info in Footer */
+      .payment-info {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .payment-info p {
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+        color: rgba(255, 255, 255, 0.7);
       }
 
       .whatsapp-float {
@@ -627,8 +673,8 @@
           padding: 6px 10px;
         }
 
-        .product-grid-img {
-          height: 150px;
+        .product-img-container {
+          height: 160px;
         }
 
         .product-grid-body {
@@ -637,10 +683,27 @@
 
         .product-grid-title {
           font-size: 1rem;
+          min-height: auto;
+        }
+
+        .product-description {
+          font-size: 0.85rem;
         }
 
         .pagination-custom .page-item .page-link {
           padding: 4px 8px;
+          font-size: 0.8rem;
+        }
+
+        .footer {
+          padding: 30px 0 15px;
+        }
+
+        .footer h4 {
+          font-size: 1rem;
+        }
+
+        .footer-links a {
           font-size: 0.8rem;
         }
       }
@@ -648,6 +711,16 @@
       @media (min-width: 576px) {
         .product-grid {
           grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .product-img-container {
+          height: 180px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .product-img-container {
+          height: 200px;
         }
       }
 
@@ -663,6 +736,10 @@
         .mobile-category-toggle {
           display: none !important;
         }
+        
+        .product-img-container {
+          height: 180px;
+        }
       }
 
       @media (min-width: 1200px) {
@@ -673,6 +750,10 @@
 
         .product-grid-item {
           border-radius: 12px;
+        }
+        
+        .product-img-container {
+          height: 200px;
         }
       }
 
@@ -707,9 +788,31 @@
           transform: translateY(-100px) translateX(20px);
         }
       }
+
+      /* Loading animation */
+      .loading {
+        text-align: center;
+        padding: 40px;
+        grid-column: 1 / -1;
+      }
+
+      .loading-spinner {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        border-top: 4px solid var(--accent-gold);
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 20px;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <!-- Bubbles/Snowfall Effect Container -->
     <div id="bubbles"></div>
 
@@ -751,30 +854,22 @@
                   <a class="dropdown-item" href="dry-flies.html">Dry Flies</a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="parachutes.html"
-                    >Parachutes</a
-                  >
+                  <a class="dropdown-item" href="parachutes.html">Parachutes</a>
                 </li>
                 <li><a class="dropdown-item active" href="nymphs.html">Nymphs</a></li>
-               
-                  <a class="dropdown-item" href="streamers.html"> B.H Streamers</a>
-                </li>
                 <li>
-                  <a class="dropdown-item" href="parachutes.html"
-                    >Parachutes</a
-                  >
+                  <a class="dropdown-item" href="streamers.html">B.H Streamers</a>
+                </li>
               </ul>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="index.html#features">Features</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html#testimonials"
-                >Testimonials</a
-              >
+              <a class="nav-link" href="index.html#testimonials">Testimonials</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html#contact">Contact</a>
+              <a class="nav-link" href="contact.html">Contact</a>
             </li>
           </ul>
         </div>
@@ -874,8 +969,8 @@
       </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer" id="contact">
+    <!-- Footer - UPDATED TO MATCH STREAMERS PAGE -->
+    <footer class="footer">
       <div class="container">
         <div class="row">
           <div class="col-lg-4 mb-4 mb-lg-0">
@@ -885,10 +980,10 @@
               pattern crafted with care for optimal performance on the water.
             </p>
             <div class="footer-social">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+              <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
           </div>
           <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
@@ -905,8 +1000,9 @@
             <h4>Product Categories</h4>
             <ul class="footer-links">
               <li><a href="dry-flies.html">Dry Flies</a></li>
-              <li><a href="parachutes.html">Parachutes</a></li>
               <li><a href="nymphs.html">Nymphs</a></li>
+              <li><a href="streamers.html">Streamers</a></li>
+              <li><a href="parachutes.html">Parachutes</a></li>
             </ul>
           </div>
           <div class="col-lg-3 col-md-6">
@@ -923,10 +1019,16 @@
                 <i class="fab fa-whatsapp me-2"></i> WhatsApp: +254728498094
               </li>
             </ul>
+            <div class="payment-info">
+              <p><strong>Payment Methods:</strong></p>
+              <p>M-Pesa: 0728498094</p>
+              <p>Bank: Wilson Kasarago</p>
+              <p>A/C: 0470191415862</p>
+            </div>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2026 Premium Fishing Flies. All rights reserved.</p>
+          <p>&copy; <span id="currentYear"></span> Premium Fishing Flies. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -949,15 +1051,15 @@
             id: 1,
             name: "Baetis Nymph",
             size: "12-20",
-            price: "ksh",
+            price: "Ksh 250",
             description: "Classic mayfly nymph imitation with pheasant tail fibers.",
             image: "images/nymph/baetis-nymph.jpg"
           },
           {
             id: 2,
-            name: "Bead Head Copper ",
+            name: "Bead Head Copper",
             size: "10-18",
-            price: "ksh",
+            price: "Ksh 280",
             description: "Buggy pattern with irresistible movement in water.",
             image: "images/nymph/bead-copper.jpg"
           },
@@ -965,7 +1067,7 @@
             id: 3,
             name: "Bead Dead Black",
             size: "10-16",
-            price: "ksh",
+            price: "Ksh 270",
             description: "Attractor nymph with distinctive white biot wings.",
             image: "images/nymph/bead-dead-black.jpg"
           },
@@ -973,15 +1075,15 @@
             id: 4,
             name: "Bead Head Flash",
             size: "12-18",
-            price: "ksh",
+            price: "Ksh 290",
             description: "Weighted attractor nymph with copper wire and flash.",
             image: "images/nymph/bead-head.jpg"
           },
           {
             id: 5,
-            name: "Buddy stone ",
+            name: "Buddy Stone",
             size: "10-16",
-            price: "ksh",
+            price: "Ksh 260",
             description: "Classic peacock herl nymph pattern.",
             image: "images/nymph/beade-head.jpg"
           },
@@ -989,7 +1091,7 @@
             id: 6,
             name: "B.H Copper Nymph",
             size: "4-10",
-            price: "ksh",
+            price: "Ksh 320",
             description: "Large nymph pattern for big trout and steelhead.",
             image: "images/nymph/bh-copper-nymph.jpg"
           },
@@ -997,7 +1099,7 @@
             id: 7,
             name: "B.H Peacock Nymph",
             size: "12-18",
-            price: "ksh",
+            price: "Ksh 250",
             description: "Green caddis larva imitation with realistic profile.",
             image: "images/nymph/bh-peacock.jpg"
           },
@@ -1005,7 +1107,7 @@
             id: 8,
             name: "B.H Gilled Nymph",
             size: "16-22",
-            price: "ksh",
+            price: "Ksh 240",
             description: "Simple but deadly midge nymph pattern.",
             image: "images/nymph/bh-sh.jpg"
           },
@@ -1013,7 +1115,7 @@
             id: 9,
             name: "BTS Nymph",
             size: "10-16",
-            price: "ksh",
+            price: "Ksh 260",
             description: "Attractive general purpose nymph pattern.",
             image: "images/nymph/bts-nymph.jpg"
           },
@@ -1021,7 +1123,7 @@
             id: 10,
             name: "Buggy Stone",
             size: "12-18",
-            price: "ksh",
+            price: "Ksh 270",
             description: "Natural squirrel dubbing creates lifelike appearance.",
             image: "images/nymph/buggy-stone.jpg"
           },
@@ -1029,7 +1131,7 @@
             id: 11,
             name: "Case Caddis",
             size: "16-22",
-            price: "ksh",
+            price: "Ksh 230",
             description: "Modern attractor nymph with rainbow flash.",
             image: "images/nymph/case-caddis.jpg"
           },
@@ -1037,7 +1139,7 @@
             id: 12,
             name: "Compara Nymph",
             size: "14-18",
-            price: "ksh",
+            price: "Ksh 250",
             description: "Classic PTN with soft hackle for extra movement.",
             image: "images/nymph/compara.jpg"
           },
@@ -1045,7 +1147,7 @@
             id: 13,
             name: "Damsel Nymph",
             size: "18-22",
-            price: "ksh",
+            price: "Ksh 220",
             description: "Simple but effective tiny midge pattern.",
             image: "images/nymph/damsel-nymph.jpg"
           },
@@ -1053,7 +1155,7 @@
             id: 14,
             name: "Gilled Nymph",
             size: "12-18",
-            price: "ksh",
+            price: "Ksh 260",
             description: "European style weighted competition nymph.",
             image: "images/nymph/Gilled-nymph.jpg"
           },
@@ -1061,31 +1163,31 @@
             id: 15,
             name: "Green Drake Nymph",
             size: "6-12",
-            price: "ksh",
+            price: "Ksh 300",
             description: "Stonefly imitation with rubber legs for action.",
             image: "images/nymph/green-drake.jpg"
           },
           {
             id: 16,
-            name: "",
+            name: "Half Black Nymph",
             size: "18-22",
-            price: "ksh",
+            price: "Ksh 220",
             description: "Midge pattern with flashy disco tinsel.",
             image: "images/nymph/half-black.jpg"
           },
           {
             id: 17,
-            name: "Hydropsyche czech",
+            name: "Hydropsyche Czech",
             size: "14-18",
-            price: "ksh",
+            price: "Ksh 270",
             description: "Scud/sowbug imitation for tailwaters.",
             image: "images/nymph/hydropsyche.jpg"
           },
           {
             id: 18,
-            name: "Killer Mayfly ",
+            name: "Killer Mayfly",
             size: "12-18",
-            price: "ksh",
+            price: "Ksh 260",
             description: "Realistic caddis pupa imitation.",
             image: "images/nymph/killer-mayfly.jpg"
           },
@@ -1093,7 +1195,7 @@
             id: 19,
             name: "Magnymphico PMD",
             size: "18-22",
-            price: "ksh",
+            price: "Ksh 240",
             description: "Tiny black midge pattern for selective fish.",
             image: "images/nymph/magnymphico.jpg"
           },
@@ -1101,7 +1203,7 @@
             id: 20,
             name: "March Brown",
             size: "16-22",
-            price: "ksh",
+            price: "Ksh 250",
             description: "Colorful attractor midge pattern.",
             image: "images/nymph/march-brown.jpg"
           },
@@ -1109,7 +1211,7 @@
             id: 21,
             name: "Mayfly Nymph",
             size: "16-22",
-            price: "ksh",
+            price: "Ksh 240",
             description: "Small mayfly nymph imitation.",
             image: "images/nymph/mayfly-nymph.jpg"
           },
@@ -1117,7 +1219,7 @@
             id: 22,
             name: "Miracle Nymph",
             size: "8-12",
-            price: "ksh",
+            price: "Ksh 280",
             description: "Large stonefly imitation with rubber legs.",
             image: "images/nymph/miracle-nymph.jpg"
           },
@@ -1125,136 +1227,155 @@
             id: 23,
             name: "Muskrat Nymph",
             size: "10-14",
-            price: "ksh",
+            price: "Ksh 250",
             description: "Effective worm imitation in various colors.",
             image: "images/nymph/muskrat-nymph.jpg"
           },
           {
             id: 24,
-            name: "Price Nymph",
+            name: "Prince Nymph",
             size: "12-18",
-            price: "ksh",
+            price: "Ksh 270",
             description: "Weighted version of the classic Hare's Ear.",
             image: "images/nymph/prince-nymph.jpg"
           },
-             {
-            id: 26,
+          {
+            id: 25,
             name: "Princes Tungsten Bead",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 290",
+            description: "Tungsten bead for faster sinking.",
             image: "images/nymph/princes-tungsten.jpg"
-          },    {
-            id: 27,
+          },
+          {
+            id: 26,
             name: "Tung Ready Baetis",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 280",
+            description: "Tungsten baetis nymph for deep pools.",
             image: "images/nymph/ready-baetis.jpg"
-          },    {
-            id: 28,
+          },
+          {
+            id: 27,
             name: "Rhyacophia Nymph",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 260",
+            description: "Free-living caddis larva imitation.",
             image: "images/nymph/rhyacophia.jpg"
-          },    {
-            id: 29,
+          },
+          {
+            id: 28,
             name: "Salvation Nymph",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 270",
+            description: "Versatile attractor pattern for all waters.",
             image: "images/nymph/salvation-nymph.jpg"
-          },    {
-            id: 30,
+          },
+          {
+            id: 29,
             name: "'Sexy' Hex Nymph",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 300",
+            description: "Large hexagenia nymph imitation.",
             image: "images/nymph/sexy-hex.jpg"
-          },    {
-            id: 31,
+          },
+          {
+            id: 30,
             name: "Stone Fly Nymph",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 280",
+            description: "Realistic stonefly pattern with rubber legs.",
             image: "images/nymph/stone-fly.jpg"
-          },    {
-            id: 32,
+          },
+          {
+            id: 31,
             name: "Swimming Carp Nymph",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 260",
+            description: "Effective carp fishing nymph pattern.",
             image: "images/nymph/swimming-carp.jpg"
-          },    {
-            id: 33,
+          },
+          {
+            id: 32,
             name: "Tungsten Trapper Nymph",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 290",
+            description: "Heavy tungsten nymph for fast sinking.",
             image: "images/nymph/tt-nymph.jpg"
-          },    {
-            id: 34,
+          },
+          {
+            id: 33,
             name: "Tungsten Jin Nymph",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 280",
+            description: "Euro-style competition nymph pattern.",
             image: "images/nymph/tungesten-jin.jpg"
-          },    {
-            id: 35,
+          },
+          {
+            id: 34,
             name: "Tungsten Trapper Nymph",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 290",
+            description: "Heavy pattern for deep water presentations.",
             image: "images/nymph/tungesten-trapper.jpg"
-          },    {
-            id: 36,
+          },
+          {
+            id: 35,
             name: "Tungsten Nymphicator",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 300",
+            description: "Indicative nymph for detecting subtle takes.",
             image: "images/nymph/tungsten-nymphicator.jpg"
-          },    {
-            id: 37,
+          },
+          {
+            id: 36,
             name: "Tungsten Rubber Leg Prince Nymph",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 310",
+            description: "Prince nymph with rubber legs and tungsten bead.",
             image: "images/nymph/tungsten-rubber.jpg"
-          },    {
-            id: 38,
+          },
+          {
+            id: 37,
             name: "Tungsten Wonder Nymph",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 290",
+            description: "All-around effective tungsten nymph.",
             image: "images/nymph/tungsten-wonder.jpg"
-          },    { 
-            id: 39,
+          },
+          {
+            id: 38,
             name: "Ultimate Skip Nymph",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 270",
+            description: "Skip nymph pattern for technical waters.",
             image: "images/nymph/ultimate-skip.jpg"
-          },  
-          
-          
-             {
-            id: 40,
+          },
+          {
+            id: 39,
             name: "UV Czech Nymph",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 280",
+            description: "UV-enhanced Czech nymph for visibility.",
             image: "images/nymph/uv-czech.jpg"
-          }, 
-          
+          },
           {
-            id: 41,
+            id: 40,
             name: "Ultra Damsel Nymph",
             size: "12-18",
-            price: "ksh",
-            description: "Weighted version of the classic Hare's Ear.",
+            price: "Ksh 260",
+            description: "Realistic damsel nymph imitation.",
             image: "images/nymph/ultra-damsel.jpg"
           }
+        ];
+
+        // Fallback images for nymphs
+        const fallbackImages = [
+          "images/nymph/baetis-nymph.jpg",
+          "images/nymph/bead-copper.jpg",
+          "images/nymph/bead-dead-black.jpg",
+          "images/nymph/prince-nymph.jpg",
+          "images/nymph/green-drake.jpg"
         ];
 
         // Pagination settings
@@ -1275,6 +1396,9 @@
 
         // Initialize
         function init() {
+          // Set current year in footer
+          document.getElementById('currentYear').textContent = new Date().getFullYear();
+          
           renderProducts();
           renderPagination();
           setupSearch();
@@ -1332,23 +1456,23 @@
             return;
           }
 
-          pageProducts.forEach((product) => {
+          pageProducts.forEach((product, index) => {
             const productCard = document.createElement("div");
             productCard.className = "product-grid-item";
             productCard.innerHTML = `
-            <div class="product-grid-img">
-              <!-- REPLACE placeholder.jpg WITH YOUR ACTUAL IMAGE PATH -->
-              <img src="${product.image}" alt="${product.name}" class="img-fluid" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="product-grid-img-placeholder" style="display: none;">
+            <div class="product-img-container">
+              <img src="${product.image}" alt="${product.name}" class="img-fluid" 
+                   onerror="this.src='${fallbackImages[index % fallbackImages.length]}'; this.onerror=null;">
+              <div class="product-img-placeholder" style="display: none;">
                 <i class="fas fa-bug"></i>
               </div>
             </div>
             <div class="product-grid-body">
               <h3 class="product-grid-title">${product.name}</h3>
-              <p class="text-muted mb-2" style="font-size: 0.9rem;">${product.description}</p>
+              <p class="product-description">${product.description}</p>
               <div class="product-grid-meta">
                 <span class="product-grid-price">${product.price}</span>
-                <span class="product-grid-sizes">${product.size}</span>
+                <span class="product-grid-sizes">Size: ${product.size}</span>
               </div>
               <button class="btn btn-whatsapp mt-2" 
                 onclick="orderProduct('${product.name}', '${product.size}', '${product.price}')">
@@ -1478,7 +1602,7 @@
 
         // Order product function
         window.orderProduct = function (productName, size, price) {
-          const message = `Hi! I'd like to order:\n\nProduct: ${productName}\nSize: ${size}\nPrice: ${price}\n\nPlease let me know about availability and shipping.`;
+          const message = `Hi! I'd like to order a nymph fly:\n\nProduct: ${productName}\nSize: ${size}\nPrice: ${price}\n\nPlease let me know about availability and shipping.`;
           const whatsappUrl = `https://wa.me/254728498094?text=${encodeURIComponent(
             message
           )}`;

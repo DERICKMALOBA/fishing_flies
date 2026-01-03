@@ -289,7 +289,7 @@
         font-size: 0.9rem;
       }
 
-      /* Product Grid - MORE ITEMS READY FOR IMAGES */
+      /* Product Grid - IMPROVED FOR MOBILE */
       .product-grid {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
@@ -304,6 +304,8 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         transition: var(--transition);
         height: 100%;
+        display: flex;
+        flex-direction: column;
       }
 
       .product-grid-item:hover {
@@ -311,24 +313,45 @@
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       }
 
-      /* IMAGE PLACEHOLDER FOR YOU TO FILL */
-      .product-grid-img {
-        height: 180px;
+      /* IMAGE CONTAINER - FIXED */
+      .product-img-container {
+        height: 200px;
         width: 100%;
+        position: relative;
+        overflow: hidden;
+        background-color: #f8f9fa;
+      }
+
+      .product-img-container img {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        background-color: #f0f0f0;
+        transition: transform 0.5s ease;
+      }
+
+      .product-grid-item:hover .product-img-container img {
+        transform: scale(1.05);
+      }
+
+      .product-img-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-      }
-
-      .product-grid-img-placeholder {
-        color: #ccc;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color: #999;
         font-size: 3rem;
       }
 
       .product-grid-body {
         padding: 15px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
       }
 
       .product-grid-title {
@@ -337,6 +360,7 @@
         color: var(--primary-blue);
         margin-bottom: 8px;
         line-height: 1.3;
+        min-height: 2.6em;
       }
 
       .product-grid-meta {
@@ -358,6 +382,13 @@
         background: #f8f9fa;
         padding: 3px 8px;
         border-radius: 4px;
+      }
+
+      .product-description {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        flex-grow: 1;
       }
 
       /* Pagination */
@@ -469,6 +500,7 @@
         letter-spacing: 0.5px;
         font-size: 0.85rem;
         width: 100%;
+        margin-top: auto;
       }
 
       .btn-whatsapp:hover {
@@ -530,6 +562,7 @@
         border-radius: 50%;
         color: white;
         transition: var(--transition);
+        text-decoration: none;
       }
 
       .footer-social a:hover {
@@ -582,6 +615,19 @@
         box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
       }
 
+      /* Payment Info in Footer */
+      .payment-info {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .payment-info p {
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
       /* RESPONSIVE DESIGN - MOBILE FIRST */
       @media (max-width: 768px) {
         body {
@@ -627,8 +673,8 @@
           padding: 6px 10px;
         }
 
-        .product-grid-img {
-          height: 150px;
+        .product-img-container {
+          height: 160px;
         }
 
         .product-grid-body {
@@ -637,10 +683,27 @@
 
         .product-grid-title {
           font-size: 1rem;
+          min-height: auto;
+        }
+
+        .product-description {
+          font-size: 0.85rem;
         }
 
         .pagination-custom .page-item .page-link {
           padding: 4px 8px;
+          font-size: 0.8rem;
+        }
+
+        .footer {
+          padding: 30px 0 15px;
+        }
+
+        .footer h4 {
+          font-size: 1rem;
+        }
+
+        .footer-links a {
           font-size: 0.8rem;
         }
       }
@@ -648,6 +711,16 @@
       @media (min-width: 576px) {
         .product-grid {
           grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .product-img-container {
+          height: 180px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .product-img-container {
+          height: 200px;
         }
       }
 
@@ -663,6 +736,10 @@
         .mobile-category-toggle {
           display: none !important;
         }
+        
+        .product-img-container {
+          height: 180px;
+        }
       }
 
       @media (min-width: 1200px) {
@@ -673,6 +750,10 @@
 
         .product-grid-item {
           border-radius: 12px;
+        }
+        
+        .product-img-container {
+          height: 200px;
         }
       }
 
@@ -706,6 +787,28 @@
         100% {
           transform: translateY(-100px) translateX(20px);
         }
+      }
+
+      /* Loading animation */
+      .loading {
+        text-align: center;
+        padding: 40px;
+        grid-column: 1 / -1;
+      }
+
+      .loading-spinner {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        border-top: 4px solid var(--accent-gold);
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 20px;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
       }
     </style>
   </head>
@@ -757,9 +860,8 @@
                 </li>
                 <li><a class="dropdown-item" href="nymphs.html">Nymphs</a></li>
                 <li>
-                  <a class="dropdown-item" href="streamers.html">B.H Streamers</a>
+                  <a class="dropdown-item" href="streamers.html">Streamers</a>
                 </li>
-               
               </ul>
             </li>
             <li class="nav-item">
@@ -771,7 +873,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html#contact">Contact</a>
+              <a class="nav-link" href="contact.html">Contact</a>
             </li>
           </ul>
         </div>
@@ -826,8 +928,9 @@
                 </li>
                 <li>
                   <a href="streamers.html"
-                    ><i class="fas fa-leaf"></i> Streamers</a
+                    ><i class="fas fa-fish"></i> Streamers</a
                   >
+                </li>
               </ul>
             </div>
           </div>
@@ -879,10 +982,10 @@
               pattern crafted with care for optimal performance on the water.
             </p>
             <div class="footer-social">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+              <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
           </div>
           <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
@@ -899,9 +1002,9 @@
             <h4>Product Categories</h4>
             <ul class="footer-links">
               <li><a href="dry-flies.html">Dry Flies</a></li>
+              <li><a href="parachutes.html">Parachutes</a></li>
               <li><a href="nymphs.html">Nymphs</a></li>
               <li><a href="streamers.html">Streamers</a></li>
-              <li><a href="parachutes.html">Parachutes</a></li>
             </ul>
           </div>
           <div class="col-lg-3 col-md-6">
@@ -918,10 +1021,16 @@
                 <i class="fab fa-whatsapp me-2"></i> WhatsApp: +254728498094
               </li>
             </ul>
+            <div class="payment-info">
+              <p><strong>Payment Methods:</strong></p>
+              <p>M-Pesa: 0728498094</p>
+              <p>Bank: Wilson Kasarago</p>
+              <p>A/C: 0470191415862</p>
+            </div>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2026 Premium Fishing Flies. All rights reserved.</p>
+          <p>&copy; <span id="currentYear"></span> Premium Fishing Flies. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -939,329 +1048,337 @@
     <script>
       (function () {
         "use strict";
-const dryFlies = [
-  {
-    id: 1,
-    name: "Blue Wing Olive",
-    size: "14-22",
-    price: "ksh",
-    description: "Small mayfly imitation for trout.",
-    image: "images/dryflies/Blue-Wing-Olive.jpg",
-  },
-  {
-    id: 2,
-    name: "Adams, Female",
-    size: "12-18",
-    price: "ksh",
-    description: "Versatile dry fly for various trout streams.",
-    image: "images/dryflies/Adams-Female.jpg",
-  },
-  {
-    id: 3,
-    name: "Black Gant",
-    size: "14-22",
-    price: "ksh",
-    description: "Effective for gray drake and Baetis hatches.",
-    image: "images/dryflies/black-grant.jpg",
-  },
-  {
-    id: 4,
-    name: "Blue Wing Olive Cripple",
-    size: "16-20",
-    price: "ksh",
-    description: "Imitates struggling mayflies on the water surface.",
-    image: "images/dryflies/Blue-Wing-Olive-Cripple.jpg",
-  },
-  {
-    id: 5,
-    name: "Blue Wing Quill",
-    size: "14-20",
-    price: "ksh",
-    description: "Classic Baetis imitation with quill body.",
-    image: "images/dryflies/Blue-Wing-Olive-Ext-body.jpg",
-  },
-  {
-    id: 6,
-    name: "Adams, Male",
-    size: "10-22",
-    price: "ksh",
-    description: "Versatile mayfly pattern for most waters.",
-    image: "images/dryflies/Adams-Male.jpg",
-  },
-  {
-    id: 7,
-    name: "Blue Wing Olive Dun",
-    size: "16-22",
-    price: "ksh",
-    description: "Represents emerging mayflies in late spring.",
-    image: "images/dryflies/Blue-Wing-Olive-Ext-Dum.jpg",
-  },
-  {
-    id: 8,
-    name: "Ausable Wulff",
-    size: "12-18",
-    price: "ksh",
-    description: "Attractor dry fly for fast rivers.",
-    image: "images/dryflies/Ausable-wuff.jpg",
-  },
-  {
-    id: 9,
-    name: "Elk Hair Caddis Tan",
-    size: "12-18",
-    price: "ksh",
-    description: "Classic caddis imitation for trout.",
-    image: "images/dryflies/elk-tan.jpg",
-  },
-  {
-    id: 10,
-    name: "Elk Hair Caddis Black",
-    size: "12-18",
-    price: "ksh",
-    description: "Classic caddis pattern for stillwaters and streams.",
-    image: "images/dryflies/Elk-Hair-Caddis-Black.jpg",
-  },
-  {
-    id: 11,
-    name: "Hot Butt CDC Emerger",
-    size: "12-18",
-    price: "ksh",
-    description: "Emerger pattern for selective trout.",
-    image: "images/dryflies/hot-butt.jpg",
-  },
-  {
-    id: 12,
-    name: "Caddis Snowshoe Olive",
-    size: "12-18",
-    price: "ksh",
-    description: "Floating caddis pattern for river fishing.",
-    image: "images/dryflies/Caddis-Snowshoe-Olive.jpg",
-  },
-  {
-    id: 13,
-    name: "Goddard Caddis",
-    size: "14-20",
-    price: "ksh",
-    description: "Reliable caddis imitation for summer hatches.",
-    image: "images/dryflies/Blue-Wing-Olive-pull-Over.jpg",
-  },
-  {
-    id: 14,
-    name: "Green Drake",
-    size: "10-12",
-    price: "ksh",
-    description: "Large mayfly imitation for spring trout.",
-    image: "images/dryflies/Brown-Drake.jpg",
-  },
-  {
-    id: 15,
-    name: "Gray Drake",
-    size: "14-22",
-    price: "ksh",
-    description: "Imitates large gray mayflies.",
-    image: "images/dryflies/Blue-Wing-Olive-Thorax.jpg",
-  },
-  {
-    id: 16,
-    name: "Gray Drake Cripple",
-    size: "4-6",
-    price: "ksh",
-    description: "Small crippled mayfly imitation.",
-    image: "images/dryflies/Bullet-Head-Salmon-Fly.jpg",
-  },
-  {
-    id: 17,
-    name: "Griffith Gnat",
-    size: "6-10",
-    price: "ksh",
-    description: "Tiny midge imitation for trout.",
-    image: "images/dryflies/Bullet-Head-Golden-Stone.jpg",
-  },
-  {
-    id: 18,
-    name: "H/L Variant",
-    size: "8-12",
-    price: "ksh",
-    description: "Small attractor pattern.",
-    image: "images/dryflies/Bullet-Head-Skwalla.jpg",
-  },
-  {
-    id: 19,
-    name: "Hair Wing Dun Baetis",
-    size: "14-22",
-    price: "ksh",
-    description: "Classic mayfly imitation.",
-    image: "images/dryflies/Luna-Negra.jpg",
-  },
-  {
-    id: 20,
-    name: "Hair Wing Dun Baetis",
-    size: "10-16",
-    price: "ksh",
-    description: "Attractor pattern for trout.",
-    image: "images/dryflies/Royal-Coachman.jpg",
-  },
-  {
-    id: 21,
-    name: "Hemingway Caddis",
-    size: "14-18",
-    price: "ksh",
-    description: "Perfect for summer PMD hatches.",
-    image: "images/dryflies/Pale-Morning-Dun.jpg",
-  },
-  {
-    id: 22,
-    name: "Henryville Special",
-    size: "10-14",
-    price: "ksh",
-    description: "Early season mayfly pattern.",
-    image: "images/dryflies/March-Brown.jpg",
-  },
-  {
-    id: 23,
-    name: "Hendrickson Dark",
-    size: "8-14",
-    price: "ksh",
-    description: "High-floating attractor pattern.",
-    image: "images/dryflies/Hendrickson-Dark.jpg",
-  },
-  {
-    id: 24,
-    name: "Sofa Pillow",
-    size: "10-16",
-    price: "ksh",
-    description: "Durable foam-back dry fly.",
-    image: "images/dryflies/sofa-pollow.jpg",
-  },
-  {
-    id: 25,
-    name: "Spinner Baetis",
-    size: "12-18",
-    price: "ksh",
-    description: "Light-colored mayfly spinner imitation.",
-    image: "images/dryflies/spinner-baetis.jpg",
-  },
-  {
-    id: 26,
-    name: "Stimulator Black",
-    size: "12-18",
-    price: "ksh",
-    description: "Stonefly attractor pattern.",
-    image: "images/dryflies/stimulator-black.jpg",
-  },
-  {
-    id: 27,
-    name: "Stimulator Orange",
-    size: "12-16",
-    price: "ksh",
-    description: "Stonefly imitation for larger trout.",
-    image: "images/dryflies/stimulator-orange.jpg",
-  },
-  {
-    id: 28,
-    name: "Stimulator Special",
-    size: "18-24",
-    price: "ksh",
-    description: "Midge cluster imitation.",
-    image: "images/dryflies/royal-red.jpg",
-  },
-  {
-    id: 29,
-    name: "Stimulator Rubber Leg",
-    size: "14-18",
-    price: "ksh",
-    description: "Realistic mosquito imitation.",
-    image: "images/dryflies/Mosquito.jpg",
-  },
-  {
-    id: 30,
-    name: "Tarantula",
-    size: "10-16",
-    price: "ksh",
-    description: "Hair wing variation attractor fly.",
-    image: "images/dryflies/tarantula.jpg",
-  },
-  {
-    id: 31,
-    name: "Sulphur Dun",
-    size: "10-14",
-    price: "ksh",
-    description: "Deer hair body mayfly pattern.",
-    image: "images/dryflies/sulphur-dun.jpg",
-  },
-  {
-    id: 32,
-    name: "Quill Gordon",
-    size: "12-16",
-    price: "ksh",
-    description: "Eastern mayfly pattern.",
-    image: "images/dryflies/Quill-Gordon.jpg",
-  },
-  {
-    id: 33,
-    name: "Adams Female",
-    size: "14-18",
-    price: "ksh",
-    description: "Slate-colored mayfly imitation.",
-    image: "images/dryflies/Blue-Dun.jpg",
-  },
-  {
-    id: 34,
-    name: "Pale Morning Dun",
-    size: "12-16",
-    price: "ksh",
-    description: "Quill Gordon variation.",
-    image: "images/dryflies/Red-Quill.jpg",
-  },
-  {
-    id: 35,
-    name: "Renegade",
-    size: "14-20",
-    price: "ksh",
-    description: "Simple dark pattern for trout.",
-    image: "images/dryflies/Reneade.jpg",
-  },
- 
-  {
-    id: 36,
-    name: "Royal Wulff",
-    size: "10-14",
-    price: "ksh",
-    description: "Versatile attractor dry fly.",
-    image: "images/dryflies/Royal-Wuff.jpg",
-  },
-  {
-    id: 38,
-    name: "Peacock Caddis",
-    size: "12-16",
-    price: "ksh",
-    description: "Light quill body caddis imitation.",
-    image: "images/dryflies/peacock-Caddis.jpg",
-  },
-  {
-    id: 39,
-    name: "Royal Coachman",
-    size: "8-12",
-    price: "ksh",
-    description: "Classic large mayfly attractor.",
-    image: "images/dryflies/Brown-Drake.jpg",
-  },
-  {
-    id: 40,
-    name: "Royal Trude",
-    size: "8-12",
-    price: "ksh",
-    description: "Western mayfly imitation.",
-    image: "images/dryflies/Royal-Trude.jpg",
-  },
-  {
-    id: 41,
-    name: "Rio Grande Trude",
-    size: "6-10",
-    price: "ksh",
-    description: "Giant Michigan mayfly imitation.",
-    image: "images/dryflies/RIO.jpg",
-  },
-];
+        const dryFlies = [
+          {
+            id: 1,
+            name: "Blue Wing Olive",
+            size: "14-22",
+            price: "Ksh 180",
+            description: "Small mayfly imitation for trout.",
+            image: "images/dryflies/Blue-Wing-Olive.jpg",
+          },
+          {
+            id: 2,
+            name: "Adams, Female",
+            size: "12-18",
+            price: "Ksh 200",
+            description: "Versatile dry fly for various trout streams.",
+            image: "images/dryflies/Adams-Female.jpg",
+          },
+          {
+            id: 3,
+            name: "Black Gant",
+            size: "14-22",
+            price: "Ksh 170",
+            description: "Effective for gray drake and Baetis hatches.",
+            image: "images/dryflies/black-grant.jpg",
+          },
+          {
+            id: 4,
+            name: "Blue Wing Olive Cripple",
+            size: "16-20",
+            price: "Ksh 190",
+            description: "Imitates struggling mayflies on the water surface.",
+            image: "images/dryflies/Blue-Wing-Olive-Cripple.jpg",
+          },
+          {
+            id: 5,
+            name: "Blue Wing Quill",
+            size: "14-20",
+            price: "Ksh 185",
+            description: "Classic Baetis imitation with quill body.",
+            image: "images/dryflies/Blue-Wing-Olive-Ext-body.jpg",
+          },
+          {
+            id: 6,
+            name: "Adams, Male",
+            size: "10-22",
+            price: "Ksh 200",
+            description: "Versatile mayfly pattern for most waters.",
+            image: "images/dryflies/Adams-Male.jpg",
+          },
+          {
+            id: 7,
+            name: "Blue Wing Olive Dun",
+            size: "16-22",
+            price: "Ksh 190",
+            description: "Represents emerging mayflies in late spring.",
+            image: "images/dryflies/Blue-Wing-Olive-Ext-Dum.jpg",
+          },
+          {
+            id: 8,
+            name: "Ausable Wulff",
+            size: "12-18",
+            price: "Ksh 220",
+            description: "Attractor dry fly for fast rivers.",
+            image: "images/dryflies/Ausable-wuff.jpg",
+          },
+          {
+            id: 9,
+            name: "Elk Hair Caddis Tan",
+            size: "12-18",
+            price: "Ksh 195",
+            description: "Classic caddis imitation for trout.",
+            image: "images/dryflies/elk-tan.jpg",
+          },
+          {
+            id: 10,
+            name: "Elk Hair Caddis Black",
+            size: "12-18",
+            price: "Ksh 195",
+            description: "Classic caddis pattern for stillwaters and streams.",
+            image: "images/dryflies/Elk-Hair-Caddis-Black.jpg",
+          },
+          {
+            id: 11,
+            name: "Hot Butt CDC Emerger",
+            size: "12-18",
+            price: "Ksh 210",
+            description: "Emerger pattern for selective trout.",
+            image: "images/dryflies/hot-butt.jpg",
+          },
+          {
+            id: 12,
+            name: "Caddis Snowshoe Olive",
+            size: "12-18",
+            price: "Ksh 205",
+            description: "Floating caddis pattern for river fishing.",
+            image: "images/dryflies/Caddis-Snowshoe-Olive.jpg",
+          },
+          {
+            id: 13,
+            name: "Goddard Caddis",
+            size: "14-20",
+            price: "Ksh 215",
+            description: "Reliable caddis imitation for summer hatches.",
+            image: "images/dryflies/Blue-Wing-Olive-pull-Over.jpg",
+          },
+          {
+            id: 14,
+            name: "Green Drake",
+            size: "10-12",
+            price: "Ksh 250",
+            description: "Large mayfly imitation for spring trout.",
+            image: "images/dryflies/Brown-Drake.jpg",
+          },
+          {
+            id: 15,
+            name: "Gray Drake",
+            size: "14-22",
+            price: "Ksh 230",
+            description: "Imitates large gray mayflies.",
+            image: "images/dryflies/Blue-Wing-Olive-Thorax.jpg",
+          },
+          {
+            id: 16,
+            name: "Gray Drake Cripple",
+            size: "4-6",
+            price: "Ksh 240",
+            description: "Small crippled mayfly imitation.",
+            image: "images/dryflies/Bullet-Head-Salmon-Fly.jpg",
+          },
+          {
+            id: 17,
+            name: "Griffith Gnat",
+            size: "6-10",
+            price: "Ksh 160",
+            description: "Tiny midge imitation for trout.",
+            image: "images/dryflies/Bullet-Head-Golden-Stone.jpg",
+          },
+          {
+            id: 18,
+            name: "H/L Variant",
+            size: "8-12",
+            price: "Ksh 195",
+            description: "Small attractor pattern.",
+            image: "images/dryflies/Bullet-Head-Skwalla.jpg",
+          },
+          {
+            id: 19,
+            name: "Hair Wing Dun Baetis",
+            size: "14-22",
+            price: "Ksh 200",
+            description: "Classic mayfly imitation.",
+            image: "images/dryflies/Luna-Negra.jpg",
+          },
+          {
+            id: 20,
+            name: "Hair Wing Dun Baetis",
+            size: "10-16",
+            price: "Ksh 200",
+            description: "Attractor pattern for trout.",
+            image: "images/dryflies/Royal-Coachman.jpg",
+          },
+          {
+            id: 21,
+            name: "Hemingway Caddis",
+            size: "14-18",
+            price: "Ksh 210",
+            description: "Perfect for summer PMD hatches.",
+            image: "images/dryflies/Pale-Morning-Dun.jpg",
+          },
+          {
+            id: 22,
+            name: "Henryville Special",
+            size: "10-14",
+            price: "Ksh 220",
+            description: "Early season mayfly pattern.",
+            image: "images/dryflies/March-Brown.jpg",
+          },
+          {
+            id: 23,
+            name: "Hendrickson Dark",
+            size: "8-14",
+            price: "Ksh 215",
+            description: "High-floating attractor pattern.",
+            image: "images/dryflies/Hendrickson-Dark.jpg",
+          },
+          {
+            id: 24,
+            name: "Sofa Pillow",
+            size: "10-16",
+            price: "Ksh 235",
+            description: "Durable foam-back dry fly.",
+            image: "images/dryflies/sofa-pollow.jpg",
+          },
+          {
+            id: 25,
+            name: "Spinner Baetis",
+            size: "12-18",
+            price: "Ksh 190",
+            description: "Light-colored mayfly spinner imitation.",
+            image: "images/dryflies/spinner-baetis.jpg",
+          },
+          {
+            id: 26,
+            name: "Stimulator Black",
+            size: "12-18",
+            price: "Ksh 225",
+            description: "Stonefly attractor pattern.",
+            image: "images/dryflies/stimulator-black.jpg",
+          },
+          {
+            id: 27,
+            name: "Stimulator Orange",
+            size: "12-16",
+            price: "Ksh 225",
+            description: "Stonefly imitation for larger trout.",
+            image: "images/dryflies/stimulator-orange.jpg",
+          },
+          {
+            id: 28,
+            name: "Stimulator Special",
+            size: "18-24",
+            price: "Ksh 180",
+            description: "Midge cluster imitation.",
+            image: "images/dryflies/royal-red.jpg",
+          },
+          {
+            id: 29,
+            name: "Stimulator Rubber Leg",
+            size: "14-18",
+            price: "Ksh 230",
+            description: "Realistic mosquito imitation.",
+            image: "images/dryflies/Mosquito.jpg",
+          },
+          {
+            id: 30,
+            name: "Tarantula",
+            size: "10-16",
+            price: "Ksh 240",
+            description: "Hair wing variation attractor fly.",
+            image: "images/dryflies/tarantula.jpg",
+          },
+          {
+            id: 31,
+            name: "Sulphur Dun",
+            size: "10-14",
+            price: "Ksh 195",
+            description: "Deer hair body mayfly pattern.",
+            image: "images/dryflies/sulphur-dun.jpg",
+          },
+          {
+            id: 32,
+            name: "Quill Gordon",
+            size: "12-16",
+            price: "Ksh 200",
+            description: "Eastern mayfly pattern.",
+            image: "images/dryflies/Quill-Gordon.jpg",
+          },
+          {
+            id: 33,
+            name: "Adams Female",
+            size: "14-18",
+            price: "Ksh 200",
+            description: "Slate-colored mayfly imitation.",
+            image: "images/dryflies/Blue-Dun.jpg",
+          },
+          {
+            id: 34,
+            name: "Pale Morning Dun",
+            size: "12-16",
+            price: "Ksh 190",
+            description: "Quill Gordon variation.",
+            image: "images/dryflies/Red-Quill.jpg",
+          },
+          {
+            id: 35,
+            name: "Renegade",
+            size: "14-20",
+            price: "Ksh 185",
+            description: "Simple dark pattern for trout.",
+            image: "images/dryflies/Reneade.jpg",
+          },
+          {
+            id: 36,
+            name: "Royal Wulff",
+            size: "10-14",
+            price: "Ksh 220",
+            description: "Versatile attractor dry fly.",
+            image: "images/dryflies/Royal-Wuff.jpg",
+          },
+          {
+            id: 37,
+            name: "Peacock Caddis",
+            size: "12-16",
+            price: "Ksh 195",
+            description: "Light quill body caddis imitation.",
+            image: "images/dryflies/peacock-Caddis.jpg",
+          },
+          {
+            id: 38,
+            name: "Royal Coachman",
+            size: "8-12",
+            price: "Ksh 210",
+            description: "Classic large mayfly attractor.",
+            image: "images/dryflies/Brown-Drake.jpg",
+          },
+          {
+            id: 39,
+            name: "Royal Trude",
+            size: "8-12",
+            price: "Ksh 215",
+            description: "Western mayfly imitation.",
+            image: "images/dryflies/Royal-Trude.jpg",
+          },
+          {
+            id: 40,
+            name: "Rio Grande Trude",
+            size: "6-10",
+            price: "Ksh 230",
+            description: "Giant Michigan mayfly imitation.",
+            image: "images/dryflies/RIO.jpg",
+          },
+        ];
+
+        // Add fallback images
+        const fallbackImages = [
+          "images/dryflies/Blue-Wing-Olive.jpg",
+          "images/dryflies/Adams-Female.jpg",
+          "images/BB010-300x199.jpg",
+          "images/BB105-300x200.jpg",
+          "images/BN055-300x199.jpg"
+        ];
 
         // Pagination settings
         const itemsPerPage = 24;
@@ -1281,6 +1398,9 @@ const dryFlies = [
 
         // Initialize
         function init() {
+          // Set dynamic year in footer
+          document.getElementById('currentYear').textContent = new Date().getFullYear();
+          
           renderProducts();
           renderPagination();
           setupSearch();
@@ -1338,23 +1458,26 @@ const dryFlies = [
             return;
           }
 
-          pageProducts.forEach((product) => {
+          pageProducts.forEach((product, index) => {
+            // Use fallback image if main image doesn't exist
+            const imageUrl = product.image || fallbackImages[index % fallbackImages.length];
+            
             const productCard = document.createElement("div");
             productCard.className = "product-grid-item";
             productCard.innerHTML = `
-            <div class="product-grid-img">
-              <!-- REPLACE placeholder.jpg WITH YOUR ACTUAL IMAGE PATH -->
-              <img src="${product.image}" alt="${product.name}" class="img-fluid">
-              <div class="product-grid-img-placeholder" style="display: none;">
+            <div class="product-img-container">
+              <img src="${imageUrl}" alt="${product.name}" class="img-fluid" 
+                   onerror="this.src='${fallbackImages[index % fallbackImages.length]}'; this.onerror=null;">
+              <div class="product-img-placeholder" style="display: none;">
                 <i class="fas fa-feather-alt"></i>
               </div>
             </div>
             <div class="product-grid-body">
               <h3 class="product-grid-title">${product.name}</h3>
-              <p class="text-muted mb-2" style="font-size: 0.9rem;">${product.description}</p>
+              <p class="product-description">${product.description}</p>
               <div class="product-grid-meta">
                 <span class="product-grid-price">${product.price}</span>
-                <span class="product-grid-sizes">${product.size}</span>
+                <span class="product-grid-sizes">Size: ${product.size}</span>
               </div>
               <button class="btn btn-whatsapp mt-2" 
                 onclick="orderProduct('${product.name}', '${product.size}', '${product.price}')">

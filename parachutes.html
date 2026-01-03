@@ -289,7 +289,7 @@
         font-size: 0.9rem;
       }
 
-      /* Product Grid - MORE ITEMS READY FOR IMAGES */
+      /* Product Grid - IMPROVED FOR MOBILE */
       .product-grid {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
@@ -304,6 +304,8 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         transition: var(--transition);
         height: 100%;
+        display: flex;
+        flex-direction: column;
       }
 
       .product-grid-item:hover {
@@ -311,24 +313,45 @@
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
       }
 
-      /* IMAGE PLACEHOLDER FOR YOU TO FILL */
-      .product-grid-img {
-        height: 180px;
+      /* IMAGE CONTAINER - FIXED */
+      .product-img-container {
+        height: 200px;
         width: 100%;
+        position: relative;
+        overflow: hidden;
+        background-color: #f8f9fa;
+      }
+
+      .product-img-container img {
+        width: 100%;
+        height: 100%;
         object-fit: cover;
-        background-color: #f0f0f0;
+        transition: transform 0.5s ease;
+      }
+
+      .product-grid-item:hover .product-img-container img {
+        transform: scale(1.05);
+      }
+
+      .product-img-placeholder {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
-      }
-
-      .product-grid-img-placeholder {
-        color: #ccc;
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color: #999;
         font-size: 3rem;
       }
 
       .product-grid-body {
         padding: 15px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
       }
 
       .product-grid-title {
@@ -337,6 +360,7 @@
         color: var(--primary-blue);
         margin-bottom: 8px;
         line-height: 1.3;
+        min-height: 2.6em;
       }
 
       .product-grid-meta {
@@ -358,6 +382,13 @@
         background: #f8f9fa;
         padding: 3px 8px;
         border-radius: 4px;
+      }
+
+      .product-description {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        flex-grow: 1;
       }
 
       /* Pagination */
@@ -469,6 +500,7 @@
         letter-spacing: 0.5px;
         font-size: 0.85rem;
         width: 100%;
+        margin-top: auto;
       }
 
       .btn-whatsapp:hover {
@@ -530,6 +562,7 @@
         border-radius: 50%;
         color: white;
         transition: var(--transition);
+        text-decoration: none;
       }
 
       .footer-social a:hover {
@@ -582,6 +615,19 @@
         box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
       }
 
+      /* Payment Info in Footer */
+      .payment-info {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .payment-info p {
+        font-size: 0.8rem;
+        margin-bottom: 5px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
       /* RESPONSIVE DESIGN - MOBILE FIRST */
       @media (max-width: 768px) {
         body {
@@ -627,8 +673,8 @@
           padding: 6px 10px;
         }
 
-        .product-grid-img {
-          height: 150px;
+        .product-img-container {
+          height: 160px;
         }
 
         .product-grid-body {
@@ -637,10 +683,27 @@
 
         .product-grid-title {
           font-size: 1rem;
+          min-height: auto;
+        }
+
+        .product-description {
+          font-size: 0.85rem;
         }
 
         .pagination-custom .page-item .page-link {
           padding: 4px 8px;
+          font-size: 0.8rem;
+        }
+
+        .footer {
+          padding: 30px 0 15px;
+        }
+
+        .footer h4 {
+          font-size: 1rem;
+        }
+
+        .footer-links a {
           font-size: 0.8rem;
         }
       }
@@ -648,6 +711,16 @@
       @media (min-width: 576px) {
         .product-grid {
           grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .product-img-container {
+          height: 180px;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .product-img-container {
+          height: 200px;
         }
       }
 
@@ -663,6 +736,10 @@
         .mobile-category-toggle {
           display: none !important;
         }
+        
+        .product-img-container {
+          height: 180px;
+        }
       }
 
       @media (min-width: 1200px) {
@@ -673,6 +750,10 @@
 
         .product-grid-item {
           border-radius: 12px;
+        }
+        
+        .product-img-container {
+          height: 200px;
         }
       }
 
@@ -706,6 +787,28 @@
         100% {
           transform: translateY(-100px) translateX(20px);
         }
+      }
+
+      /* Loading animation */
+      .loading {
+        text-align: center;
+        padding: 40px;
+        grid-column: 1 / -1;
+      }
+
+      .loading-spinner {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        border-top: 4px solid var(--accent-gold);
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 20px;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
       }
     </style>
   </head>
@@ -757,76 +860,7 @@
                 </li>
                 <li><a class="dropdown-item" href="nymphs.html">Nymphs</a></li>
                 <li>
-                  <a class="dropdown-item" href="emergers.html">Emergers</a>
-                </li>
-                <li><a class="dropdown-item" href="midges.html">Midges</a></li>
-                <li>
-                  <a class="dropdown-item" href="bh-nymphs.html"
-                    >Beadhead Nymphs</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="tungsten-nymphs.html"
-                    >Tungsten Nymphs</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="terrestrials.html"
-                    >Terrestrials</a
-                  >
-                </li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="bob-brooks.html"
-                    >Bob Brooks Patterns</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="shane-stalcup.html"
-                    >Shane Stalcup Patterns</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="skip-morris.html"
-                    >Skip Morris Patterns</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="rene-harrop.html"
-                    >Rene Harrop Patterns</a
-                  >
-                </li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
                   <a class="dropdown-item" href="streamers.html">Streamers</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="bh-streamers.html"
-                    >Beadhead Streamers</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="czech-nymphs.html"
-                    >Czech Nymphs</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="warmwater.html"
-                    >Warmwater Flies</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="poppers.html">Poppers</a>
-                </li>
-                <li>
-                  <a class="dropdown-item" href="steelhead.html"
-                    >Steelhead Flies</a
-                  >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="saltwater.html"
-                    >Saltwater Flies</a
-                  >
                 </li>
               </ul>
             </li>
@@ -839,7 +873,7 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html#contact">Contact</a>
+              <a class="nav-link" href="contact.html">Contact</a>
             </li>
           </ul>
         </div>
@@ -892,10 +926,9 @@
                 <li>
                   <a href="nymphs.html"><i class="fas fa-bug"></i> Nymphs</a>
                 </li>
-              <li>
-                <a href="streamers.html" ><i class="fas fa-fish"></i> Streamers</a>
-              </li>
-               
+                <li>
+                  <a href="streamers.html" ><i class="fas fa-fish"></i> Streamers</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -947,10 +980,10 @@
               pattern crafted with care for optimal performance on the water.
             </p>
             <div class="footer-social">
-              <a href="#"><i class="fab fa-facebook-f"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-twitter"></i></a>
-              <a href="#"><i class="fab fa-youtube"></i></a>
+              <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+              <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+              <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
             </div>
           </div>
           <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
@@ -986,10 +1019,16 @@
                 <i class="fab fa-whatsapp me-2"></i> WhatsApp: +254728498094
               </li>
             </ul>
+            <div class="payment-info">
+              <p><strong>Payment Methods:</strong></p>
+              <p>M-Pesa: 0728498094</p>
+              <p>Bank: Wilson Kasarago</p>
+              <p>A/C: 0470191415862</p>
+            </div>
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2026 Premium Fishing Flies. All rights reserved.</p>
+          <p>&copy; <span id="currentYear"></span> Premium Fishing Flies. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -1010,9 +1049,9 @@
         const parachutes = [
           {
             id: 1,
-            name: "Parachute  Adams",
+            name: "Parachute Adams",
             size: "12-20",
-            price: "ksh",
+            price: "Ksh 200",
             description: "The classic Adams with high-visibility parachute design.",
             image: "images/parachutes/para-adams.jpg"
           },
@@ -1020,15 +1059,15 @@
             id: 2,
             name: "Para Hare's Ear",
             size: "12-18",
-            price: "ksh",
+            price: "Ksh 180",
             description: "Attractive colors with excellent visibility.",
             image: "images/parachutes/para-hare's-ear.jpg"
           },
           {
             id: 3,
-            name: "Para Hivis Emerger ",
+            name: "Para Hivis Emerger",
             size: "16-22",
-            price: "ksh",
+            price: "Ksh 220",
             description: "Essential Blue Wing Olive in parachute style.",
             image: "images/parachutes/para-hivis.jpg"
           },
@@ -1036,7 +1075,7 @@
             id: 4,
             name: "Para Hopper Tan",
             size: "14-18",
-            price: "ksh",
+            price: "Ksh 190",
             description: "Pale Morning Dun with visible post.",
             image: "images/parachutes/para-hopper-tan.jpg"
           },
@@ -1044,7 +1083,7 @@
             id: 5,
             name: "Para Pale Morning",
             size: "14-18",
-            price: "ksh",
+            price: "Ksh 210",
             description: "Perfect for summer sulfur hatches.",
             image: "images/parachutes/para-pale-morming.jpg"
           },
@@ -1052,7 +1091,7 @@
             id: 6,
             name: "Para X Peacock Body",
             size: "8-12",
-            price: "ksh",
+            price: "Ksh 250",
             description: "Grasshopper pattern with visible post.",
             image: "images/parachutes/para-x.jpg"
           },
@@ -1060,7 +1099,7 @@
             id: 7,
             name: "Parachute Black Gnat",
             size: "12-16",
-            price: "ksh",
+            price: "Ksh 180",
             description: "Classic attractor pattern with parachute hackle.",
             image: "images/parachutes/parachute-black-gnat.jpg"
           },
@@ -1068,15 +1107,15 @@
             id: 8,
             name: "Parachute Purple Adams",
             size: "12-18",
-            price: "ksh",
+            price: "Ksh 200",
             description: "Caddis imitation with high-visibility post.",
             image: "images/parachutes/purple-adams.jpg"
           },
           {
             id: 9,
-            name: "Yellow Sallie snowshoe",
+            name: "Yellow Sallie Snowshoe",
             size: "12-16",
-            price: "ksh",
+            price: "Ksh 220",
             description: "Early season mayfly pattern in parachute style.",
             image: "images/parachutes/yellow-sallie-snowshoe.jpg"
           },
@@ -1084,12 +1123,19 @@
             id: 10,
             name: "Yellow Sally Larimer",
             size: "12-16",
-            price: "ksh",
+            price: "Ksh 210",
             description: "Light-colored mayfly with excellent floatation.",
             image: "images/parachutes/yellow-sally-larimer.jpg"
           },
-          
-        
+        ];
+
+        // Add fallback images for products without specific images
+        const fallbackImages = [
+          "images/parachutes/para-adams.jpg",
+          "images/parachutes/yellow-sallie-snowshoe.jpg",
+          "images/BB010-300x199.jpg",
+          "images/BB105-300x200.jpg",
+          "images/BN055-300x199.jpg"
         ];
 
         // Pagination settings
@@ -1110,6 +1156,9 @@
 
         // Initialize
         function init() {
+          // Set dynamic year in footer
+          document.getElementById('currentYear').textContent = new Date().getFullYear();
+          
           renderProducts();
           renderPagination();
           setupSearch();
@@ -1167,23 +1216,26 @@
             return;
           }
 
-          pageProducts.forEach((product) => {
+          pageProducts.forEach((product, index) => {
+            // Use fallback image if main image doesn't exist
+            const imageUrl = product.image || fallbackImages[index % fallbackImages.length];
+            
             const productCard = document.createElement("div");
             productCard.className = "product-grid-item";
             productCard.innerHTML = `
-            <div class="product-grid-img">
-              <!-- REPLACE placeholder.jpg WITH YOUR ACTUAL IMAGE PATH -->
-              <img src="${product.image}" alt="${product.name}" class="img-fluid" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-              <div class="product-grid-img-placeholder">
+            <div class="product-img-container">
+              <img src="${imageUrl}" alt="${product.name}" class="img-fluid" 
+                   onerror="this.src='${fallbackImages[index % fallbackImages.length]}'; this.onerror=null;">
+              <div class="product-img-placeholder" style="display: none;">
                 <i class="fas fa-umbrella"></i>
               </div>
             </div>
             <div class="product-grid-body">
               <h3 class="product-grid-title">${product.name}</h3>
-              <p class="text-muted mb-2" style="font-size: 0.9rem;">${product.description}</p>
+              <p class="product-description">${product.description}</p>
               <div class="product-grid-meta">
                 <span class="product-grid-price">${product.price}</span>
-                <span class="product-grid-sizes">${product.size}</span>
+                <span class="product-grid-sizes">Size: ${product.size}</span>
               </div>
               <button class="btn btn-whatsapp mt-2" 
                 onclick="orderProduct('${product.name}', '${product.size}', '${product.price}')">
