@@ -1,210 +1,1356 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Premium parachute dry flies for fly fishing. High-visibility patterns including Adams Parachute, Purple Haze, and Parachute BWO. Order via WhatsApp.">
-  <meta name="keywords" content="parachute flies, parachute dry flies, Adams Parachute, fly fishing, high visibility flies">
-  <meta name="robots" content="index, follow">
-  <title>Parachute Flies | High-Visibility Dry Fly Patterns for Fly Fishing</title>
-  <link rel="canonical" href="parachutes.html">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-  <link href="css/styles.min.css" rel="stylesheet">
-</head>
-<body>
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html"><i class="fas fa-fish"></i> Premium Flies</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">Categories</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="dry-flies.html">Dry Flies</a></li>
-              <li><a class="dropdown-item active" href="parachutes.html">Parachutes</a></li>
-              <li><a class="dropdown-item" href="nymphs.html">Nymphs</a></li>
-              <li><a class="dropdown-item" href="emergers.html">Emergers</a></li>
-              <li><a class="dropdown-item" href="midges.html">Midges</a></li>
-              <li><a class="dropdown-item" href="bh-nymphs.html">Beadhead Nymphs</a></li>
-              <li><a class="dropdown-item" href="tungsten-nymphs.html">Tungsten Nymphs</a></li>
-              <li><a class="dropdown-item" href="terrestrials.html">Terrestrials</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="bob-brooks.html">Bob Brooks Patterns</a></li>
-              <li><a class="dropdown-item" href="shane-stalcup.html">Shane Stalcup Patterns</a></li>
-              <li><a class="dropdown-item" href="skip-morris.html">Skip Morris Patterns</a></li>
-              <li><a class="dropdown-item" href="rene-harrop.html">Rene Harrop Patterns</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="streamers.html">Streamers</a></li>
-              <li><a class="dropdown-item" href="bh-streamers.html">Beadhead Streamers</a></li>
-              <li><a class="dropdown-item" href="czech-nymphs.html">Czech Nymphs</a></li>
-              <li><a class="dropdown-item" href="warmwater.html">Warmwater Flies</a></li>
-              <li><a class="dropdown-item" href="poppers.html">Poppers</a></li>
-              <li><a class="dropdown-item" href="steelhead.html">Steelhead Flies</a></li>
-              <li><a class="dropdown-item" href="saltwater.html">Saltwater Flies</a></li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Premium hand-tied parachute dry flies for fly fishing. Shop Adams Parachute, Purple Haze, Parachute BWO, PMD and more high-visibility patterns. Order via WhatsApp."
+    />
+    <meta
+      name="keywords"
+      content="parachute flies, parachute dry flies, Adams Parachute, high visibility flies, trout flies"
+    />
+    <meta name="author" content="Premium Fishing Flies" />
+    <meta name="robots" content="index, follow" />
+    <title>
+      Parachute Flies | Premium Hand-Tied High-Visibility Patterns for Fly Fishing
+    </title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <style>
+      :root {
+        --primary-blue: #1a365d;
+        --secondary-blue: #2d5a8c;
+        --accent-gold: #d4af37;
+        --accent-copper: #b87333;
+        --accent-aqua: #48cae4;
+        --light-bg: #f8f9fa;
+        --dark-bg: #0f172a;
+        --text-light: #f8f9fa;
+        --text-dark: #1a202c;
+        --card-bg: rgba(255, 255, 255, 0.05);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: var(--text-dark);
+        background-color: var(--light-bg);
+        overflow-x: hidden;
+        line-height: 1.6;
+        padding-top: 80px;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Playfair Display", serif;
+        font-weight: 700;
+      }
+
+      /* Header & Navigation */
+      .navbar {
+        background-color: rgba(15, 23, 42, 0.98) !important;
+        backdrop-filter: blur(10px);
+        padding: 12px 0;
+        transition: var(--transition);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        border-bottom: 2px solid var(--accent-gold);
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1050;
+      }
+
+      .navbar-brand {
+        font-family: "Playfair Display", serif;
+        font-weight: 900;
+        font-size: 1.6rem;
+        color: var(--accent-gold) !important;
+        display: flex;
+        align-items: center;
+      }
+
+      .navbar-brand i {
+        margin-right: 8px;
+        font-size: 1.3rem;
+      }
+
+      .navbar-brand .brand-full {
+        display: inline;
+      }
+
+      .navbar-brand .brand-short {
+        display: none;
+      }
+
+      .nav-link {
+        color: var(--text-light) !important;
+        font-weight: 500;
+        padding: 8px 15px !important;
+        transition: var(--transition);
+        position: relative;
+        font-size: 0.95rem;
+      }
+
+      .nav-link:hover {
+        color: var(--accent-gold) !important;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 15px;
+        right: 15px;
+        height: 2px;
+        background-color: var(--accent-gold);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+        transform: scaleX(1);
+      }
+
+      .dropdown-menu {
+        background-color: var(--dark-bg);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        min-width: 250px;
+      }
+
+      .dropdown-item {
+        color: var(--text-light);
+        padding: 8px 20px;
+        transition: var(--transition);
+      }
+
+      .dropdown-item:hover {
+        background-color: rgba(212, 175, 55, 0.1);
+        color: var(--accent-gold);
+      }
+
+      /* Page Header - REDUCED SPACE */
+      .page-header {
+        background: linear-gradient(
+            rgba(15, 23, 42, 0.95),
+            rgba(15, 23, 42, 0.9)
+          ),
+          url("images/parachutes/parachute-header.jpg");
+        background-size: cover;
+        background-position: center;
+        color: var(--text-light);
+        padding: 30px 0 20px;
+        margin-bottom: 0;
+        position: relative;
+      }
+
+      .page-header h1 {
+        font-size: 2.2rem;
+        color: var(--accent-gold);
+        margin-bottom: 10px;
+      }
+
+      .page-header .lead {
+        font-size: 1rem;
+        opacity: 0.9;
+      }
+
+      .breadcrumb-custom {
+        background: transparent;
+        padding: 0;
+        margin-bottom: 15px;
+      }
+
+      .breadcrumb-custom .breadcrumb-item a {
+        color: var(--accent-gold);
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+
+      .breadcrumb-custom .breadcrumb-item.active {
+        color: var(--text-light);
+        opacity: 0.8;
+      }
+
+      /* PRODUCT PAGE SPECIFIC STYLES */
+      .product-page-container {
+        padding: 20px 0;
+      }
+
+      /* Mobile-first: Show products first, categories as dropdown on mobile */
+      .mobile-category-toggle {
+        display: none;
+        background: var(--primary-blue);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        width: 100%;
+        text-align: left;
+        font-weight: 600;
+      }
+
+      .mobile-category-toggle i {
+        float: right;
+        transition: var(--transition);
+      }
+
+      .mobile-category-toggle.active i {
+        transform: rotate(180deg);
+      }
+
+      /* Sidebar Styles - IMPROVED FOR MOBILE */
+      .category-sidebar {
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        height: fit-content;
+        position: sticky;
+        top: 100px;
+        margin-bottom: 20px;
+      }
+
+      .category-sidebar h3 {
+        color: var(--primary-blue);
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid var(--accent-gold);
+        font-size: 1.1rem;
+      }
+
+      .category-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        max-height: 400px;
+        overflow-y: auto;
+      }
+
+      .category-list li {
+        margin-bottom: 8px;
+      }
+
+      .category-list a {
+        color: var(--text-dark);
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: var(--transition);
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+
+      .category-list a:hover {
+        background-color: rgba(212, 175, 55, 0.1);
+        color: var(--accent-gold);
+        transform: translateX(5px);
+      }
+
+      .category-list a.active {
+        background-color: var(--accent-gold);
+        color: var(--dark-bg);
+        font-weight: 600;
+      }
+
+      .category-list i {
+        margin-right: 8px;
+        width: 20px;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+
+      /* Product Grid - MORE ITEMS READY FOR IMAGES */
+      .product-grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+        margin-bottom: 30px;
+      }
+
+      .product-grid-item {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        transition: var(--transition);
+        height: 100%;
+      }
+
+      .product-grid-item:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      /* IMAGE PLACEHOLDER FOR YOU TO FILL */
+      .product-grid-img {
+        height: 180px;
+        width: 100%;
+        object-fit: cover;
+        background-color: #f0f0f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .product-grid-img-placeholder {
+        color: #ccc;
+        font-size: 3rem;
+      }
+
+      .product-grid-body {
+        padding: 15px;
+      }
+
+      .product-grid-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--primary-blue);
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+
+      .product-grid-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .product-grid-price {
+        color: var(--accent-copper);
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+
+      .product-grid-sizes {
+        color: #666;
+        font-size: 0.85rem;
+        background: #f8f9fa;
+        padding: 3px 8px;
+        border-radius: 4px;
+      }
+
+      /* Pagination */
+      .pagination-custom {
+        justify-content: center;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+
+      .pagination-custom .page-item .page-link {
+        color: var(--primary-blue);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin: 2px;
+        border-radius: 6px;
+        transition: var(--transition);
+        font-size: 0.9rem;
+        padding: 6px 12px;
+      }
+
+      .pagination-custom .page-item.active .page-link {
+        background-color: var(--accent-gold);
+        border-color: var(--accent-gold);
+        color: var(--dark-bg);
+      }
+
+      .pagination-custom .page-item .page-link:hover {
+        background-color: rgba(212, 175, 55, 0.1);
+        border-color: var(--accent-gold);
+      }
+
+      /* Page Search - IMPROVED */
+      .page-search {
+        margin-bottom: 20px;
+      }
+
+      .page-search .input-group {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        border-radius: 8px;
+        overflow: hidden;
+        border: 1px solid #e0e0e0;
+      }
+
+      .page-search .form-control {
+        border: none;
+        padding: 12px 15px;
+        font-size: 0.95rem;
+      }
+
+      .page-search .form-control:focus {
+        box-shadow: none;
+        border-color: var(--accent-gold);
+      }
+
+      .page-search .btn-search {
+        background-color: var(--accent-gold);
+        color: var(--dark-bg);
+        border: none;
+        padding: 0 20px;
+        font-weight: 600;
+        transition: var(--transition);
+        font-size: 0.9rem;
+      }
+
+      .page-search .btn-search:hover {
+        background-color: var(--accent-copper);
+        color: white;
+      }
+
+      /* Results Count */
+      .results-count {
+        color: #666;
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+        padding-left: 5px;
+      }
+
+      /* Buttons */
+      .btn-primary-custom {
+        background-color: var(--accent-gold);
+        color: var(--dark-bg);
+        border: none;
+        padding: 8px 16px;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: var(--transition);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.85rem;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-primary-custom:hover {
+        background-color: var(--accent-copper);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(212, 175, 55, 0.3);
+      }
+
+      .btn-whatsapp {
+        background-color: #25d366;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 25px;
+        font-weight: 600;
+        transition: var(--transition);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.85rem;
+        width: 100%;
+      }
+
+      .btn-whatsapp:hover {
+        background-color: #128c7e;
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 15px rgba(37, 211, 102, 0.3);
+      }
+
+      /* Footer */
+      .footer {
+        background-color: var(--dark-bg);
+        color: var(--text-light);
+        padding: 40px 0 20px;
+        margin-top: 40px;
+      }
+
+      .footer h4 {
+        color: var(--accent-gold);
+        margin-bottom: 15px;
+        font-size: 1.1rem;
+      }
+
+      .footer-links {
+        list-style: none;
+        padding-left: 0;
+        margin-bottom: 20px;
+      }
+
+      .footer-links li {
+        margin-bottom: 6px;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: var(--transition);
+        font-size: 0.85rem;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent-gold);
+        padding-left: 5px;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+      }
+
+      .footer-social a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        transition: var(--transition);
+      }
+
+      .footer-social a:hover {
+        background-color: var(--accent-gold);
+        transform: translateY(-2px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 20px;
+        margin-top: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 0.8rem;
+      }
+
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        width: 55px;
+        height: 55px;
+        background-color: #25d366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+        z-index: 1000;
+        transition: var(--transition);
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+        70% {
+          box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+        }
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+      }
+
+      /* RESPONSIVE DESIGN - MOBILE FIRST */
+      @media (max-width: 768px) {
+        body {
+          padding-top: 70px;
+        }
+
+        .page-header {
+          padding: 20px 0 15px;
+        }
+
+        .page-header h1 {
+          font-size: 1.8rem;
+          margin-bottom: 8px;
+        }
+
+        .page-header .lead {
+          font-size: 0.9rem;
+        }
+
+        .mobile-category-toggle {
+          display: block;
+        }
+
+        .category-sidebar {
+          display: none;
+          position: static;
+          margin-top: 10px;
+        }
+
+        .category-sidebar.mobile-show {
+          display: block;
+        }
+
+        .category-list {
+          max-height: 250px;
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 8px;
+        }
+
+        .category-list a {
+          font-size: 0.85rem;
+          padding: 6px 10px;
+        }
+
+        .product-grid-img {
+          height: 150px;
+        }
+
+        .product-grid-body {
+          padding: 12px;
+        }
+
+        .product-grid-title {
+          font-size: 1rem;
+        }
+
+        .pagination-custom .page-item .page-link {
+          padding: 4px 8px;
+          font-size: 0.8rem;
+        }
+      }
+
+      @media (min-width: 576px) {
+        .product-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (min-width: 992px) {
+        .product-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .category-sidebar {
+          display: block !important;
+        }
+
+        .mobile-category-toggle {
+          display: none !important;
+        }
+      }
+
+      @media (min-width: 1200px) {
+        .product-grid {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 20px;
+        }
+
+        .product-grid-item {
+          border-radius: 12px;
+        }
+      }
+
+      /* Bubbles/Snowfall Effect */
+      #bubbles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .bubble {
+        position: absolute;
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.1) 0%,
+          rgba(184, 115, 51, 0.05) 100%
+        );
+        border-radius: 50%;
+        animation: float linear infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) translateX(0);
+        }
+        100% {
+          transform: translateY(-100px) translateX(20px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Bubbles/Snowfall Effect Container -->
+    <div id="bubbles"></div>
+
+    <!-- Header & Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <i class="fas fa-fish"></i>
+          <span class="brand-full">Premium Fishing Flies</span>
+          <span class="brand-short">Premium Flies</span>
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle active"
+                href="#"
+                id="productsDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+              >
+                Products
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="dry-flies.html">Dry Flies</a>
+                </li>
+                <li>
+                  <a class="dropdown-item active" href="parachutes.html"
+                    >Parachutes</a
+                  >
+                </li>
+                <li><a class="dropdown-item" href="nymphs.html">Nymphs</a></li>
+                <li>
+                  <a class="dropdown-item" href="emergers.html">Emergers</a>
+                </li>
+                <li><a class="dropdown-item" href="midges.html">Midges</a></li>
+                <li>
+                  <a class="dropdown-item" href="bh-nymphs.html"
+                    >Beadhead Nymphs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="tungsten-nymphs.html"
+                    >Tungsten Nymphs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="terrestrials.html"
+                    >Terrestrials</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="bob-brooks.html"
+                    >Bob Brooks Patterns</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="shane-stalcup.html"
+                    >Shane Stalcup Patterns</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="skip-morris.html"
+                    >Skip Morris Patterns</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="rene-harrop.html"
+                    >Rene Harrop Patterns</a
+                  >
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="streamers.html">Streamers</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="bh-streamers.html"
+                    >Beadhead Streamers</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="czech-nymphs.html"
+                    >Czech Nymphs</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="warmwater.html"
+                    >Warmwater Flies</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="poppers.html">Poppers</a>
+                </li>
+                <li>
+                  <a class="dropdown-item" href="steelhead.html"
+                    >Steelhead Flies</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="saltwater.html"
+                    >Saltwater Flies</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#testimonials"
+                >Testimonials</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Header - MINIMAL SPACE -->
+    <header class="page-header">
+      <div class="container">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-custom">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">
+              Parachute Flies
+            </li>
+          </ol>
+        </nav>
+        <h1>Parachute Flies</h1>
+        <p class="lead">
+          Premium hand-tied high-visibility parachute patterns for trout and other game fish
+        </p>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="product-page-container">
+      <div class="container">
+        <!-- Mobile Category Toggle -->
+        <button class="mobile-category-toggle" id="mobileCategoryToggle">
+          <i class="fas fa-list me-2"></i> Browse Categories
+          <i class="fas fa-chevron-down"></i>
+        </button>
+
+        <div class="row">
+          <!-- Left Sidebar - Categories (Hidden on mobile by default) -->
+          <div class="col-lg-3">
+            <div class="category-sidebar" id="categorySidebar">
+              <h3><i class="fas fa-list me-2"></i> Categories</h3>
+              <ul class="category-list">
+                <li>
+                  <a href="dry-flies.html"
+                    ><i class="fas fa-water"></i> Dry Flies</a
+                  >
+                </li>
+                <li>
+                  <a href="parachutes.html" class="active"
+                    ><i class="fas fa-parachute-box"></i> Parachutes</a
+                  >
+                </li>
+                <li>
+                  <a href="nymphs.html"><i class="fas fa-bug"></i> Nymphs</a>
+                </li>
+              <li>
+                <a href="streamers.html" ><i class="fas fa-fish"></i> Streamers</a>
+              </li>
+               
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right Content - Product Grid (Shows first on mobile) -->
+          <div class="col-lg-9">
+            <!-- Search Bar -->
+            <div class="page-search">
+              <div class="input-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="pageSearchInput"
+                  placeholder="Search parachute flies by name, size, or pattern..."
+                />
+                <button class="btn btn-search" type="button" id="pageSearchBtn">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+              <div class="results-count mt-2" id="resultsCount">
+                Loading products...
+              </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="productGrid">
+              <!-- Products will be loaded here by JavaScript -->
+            </div>
+
+            <!-- Pagination -->
+            <nav aria-label="Product pagination">
+              <ul class="pagination pagination-custom" id="productPagination">
+                <!-- Pagination will be generated by JavaScript -->
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <h4><i class="fas fa-fish me-2"></i> Premium Fishing Flies</h4>
+            <p class="mt-3">
+              Quality hand-tied fishing flies for passionate anglers. Every
+              pattern crafted with care for optimal performance on the water.
+            </p>
+            <div class="footer-social">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+            <h4>Quick Links</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#features">Features</a></li>
+              <li><a href="index.html#products">Products</a></li>
+              <li><a href="index.html#testimonials">Testimonials</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
             </ul>
-          </li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-        </ul>
-        <div class="search-box d-none d-lg-block">
-          <i class="fas fa-search"></i>
-          <input type="text" id="searchInput" placeholder="Search flies..." aria-label="Search products">
-          <div id="searchResults" class="search-results"></div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+            <h4>Product Categories</h4>
+            <ul class="footer-links">
+              <li><a href="dry-flies.html">Dry Flies</a></li>
+              <li><a href="parachutes.html">Parachutes</a></li>
+              <li><a href="nymphs.html">Nymphs</a></li>
+              <li><a href="streamers.html">Streamers</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4>Contact Info</h4>
+            <ul class="footer-links">
+              <li>
+                <i class="fas fa-map-marker-alt me-2"></i> Dagoretti, Nairobi
+              </li>
+              <li><i class="fas fa-phone me-2"></i> +254728498094</li>
+              <li>
+                <i class="fas fa-envelope me-2"></i> wilsonrufai@yahoo.com
+              </li>
+              <li>
+                <i class="fab fa-whatsapp me-2"></i> WhatsApp: +254728498094
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Premium Fishing Flies. All rights reserved.</p>
         </div>
       </div>
-    </div>
-  </nav>
+    </footer>
 
-  <header class="page-header">
-    <div class="container">
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb breadcrumb-custom">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-          <li class="breadcrumb-item active" aria-current="page">Parachutes</li>
-        </ol>
-      </nav>
-      <h1>Parachute Flies</h1>
-    </div>
-  </header>
+    <!-- Floating WhatsApp Button -->
+    <a
+      href="https://wa.me/254728498094?text=Hi!%20I'm%20interested%20in%20your%20parachute%20flies"
+      class="whatsapp-float"
+      target="_blank"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
 
-  <main class="py-5">
-    <div class="container">
-      <div class="category-intro">
-        <h2>About Parachute Flies</h2>
-        <p>Parachute flies represent a revolutionary approach to dry fly design, featuring a horizontal hackle wrapped around a vertical post rather than the traditional vertical wrap. This innovative construction creates patterns that land softly, float in the surface film with a natural profile, and remain highly visible to anglers thanks to the prominent wing post. The parachute style has become indispensable for technical dry fly fishing where presentation and visibility are paramount.</p>
-        <p>The Adams Parachute has become perhaps the most popular variation of this legendary pattern, offering improved visibility while maintaining its incredible versatility. Our Purple Haze combines the parachute style with eye-catching colors that attract fish while remaining easy to track in complex currents. The Parachute BWO is essential for those cloudy days when Baetis mayflies emerge. Each parachute pattern in our collection is carefully tied to ensure the hackle is perfectly horizontal, providing optimal flotation and that distinctive low-riding presentation that fooling selective trout demands. The bright post materials we use make tracking your fly effortless, even in low light conditions.</p>
-      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      (function () {
+        "use strict";
+        const parachutes = [
+          {
+            id: 1,
+            name: "Parachute  Adams",
+            size: "12-20",
+            price: "ksh",
+            description: "The classic Adams with high-visibility parachute design.",
+            image: "images/parachutes/para-adams.jpg"
+          },
+          {
+            id: 2,
+            name: "Para Hare's Ear",
+            size: "12-18",
+            price: "ksh",
+            description: "Attractive colors with excellent visibility.",
+            image: "images/parachutes/para-hare's-ear.jpg"
+          },
+          {
+            id: 3,
+            name: "Para Hivis Emerger ",
+            size: "16-22",
+            price: "ksh",
+            description: "Essential Blue Wing Olive in parachute style.",
+            image: "images/parachutes/para-hivis.jpg"
+          },
+          {
+            id: 4,
+            name: "Para Hopper Tan",
+            size: "14-18",
+            price: "ksh",
+            description: "Pale Morning Dun with visible post.",
+            image: "images/parachutes/para-hopper-tan.jpg"
+          },
+          {
+            id: 5,
+            name: "Para Pale Morning",
+            size: "14-18",
+            price: "ksh",
+            description: "Perfect for summer sulfur hatches.",
+            image: "images/parachutes/para-pale-morming.jpg"
+          },
+          {
+            id: 6,
+            name: "Para X Peacock Body",
+            size: "8-12",
+            price: "ksh",
+            description: "Grasshopper pattern with visible post.",
+            image: "images/parachutes/para-x.jpg"
+          },
+          {
+            id: 7,
+            name: "Parachute Black Gnat",
+            size: "12-16",
+            price: "ksh",
+            description: "Classic attractor pattern with parachute hackle.",
+            image: "images/parachutes/parachute-black-gnat.jpg"
+          },
+          {
+            id: 8,
+            name: "Parachute Purple Adams",
+            size: "12-18",
+            price: "ksh",
+            description: "Caddis imitation with high-visibility post.",
+            image: "images/parachutes/purple-adams.jpg"
+          },
+          {
+            id: 9,
+            name: "Yellow Sallie snowshoe",
+            size: "12-16",
+            price: "ksh",
+            description: "Early season mayfly pattern in parachute style.",
+            image: "images/parachutes/yellow-sallie-snowshoe.jpg"
+          },
+          {
+            id: 10,
+            name: "Yellow Sally Larimer",
+            size: "12-16",
+            price: "ksh",
+            description: "Light-colored mayfly with excellent floatation.",
+            image: "images/parachutes/yellow-sally-larimer.jpg"
+          },
+          
+        
+        ];
 
-      <h2 class="h4 mb-4">Our Parachute Patterns</h2>
-      <div class="row g-4 mb-5">
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <article class="product-card">
-            <div class="product-img-wrapper"><i class="fas fa-umbrella"></i></div>
-            <div class="product-body">
-              <h3 class="product-title">Adams Parachute</h3>
-              <p class="product-desc">The classic Adams with high-visibility parachute design.</p>
-              <div class="product-meta"><span class="product-size">Sizes: 12-20</span></div>
-              <a href="#" class="btn btn-whatsapp btn-sm w-100" data-whatsapp="Hi! I'd like to order Adams Parachute."><i class="fab fa-whatsapp"></i> Order</a>
+        // Pagination settings
+        const itemsPerPage = 24;
+        let currentPage = 1;
+        let filteredProducts = [...parachutes];
+
+        // DOM Elements
+        const productGrid = document.getElementById("productGrid");
+        const pagination = document.getElementById("productPagination");
+        const searchInput = document.getElementById("pageSearchInput");
+        const searchBtn = document.getElementById("pageSearchBtn");
+        const resultsCount = document.getElementById("resultsCount");
+        const mobileCategoryToggle = document.getElementById(
+          "mobileCategoryToggle"
+        );
+        const categorySidebar = document.getElementById("categorySidebar");
+
+        // Initialize
+        function init() {
+          renderProducts();
+          renderPagination();
+          setupSearch();
+          setupMobileToggle();
+          createBubbles();
+
+          // Auto-scroll to products on mobile
+          if (window.innerWidth < 992) {
+            setTimeout(() => {
+              window.scrollTo({
+                top: productGrid.offsetTop - 80,
+                behavior: "smooth",
+              });
+            }, 100);
+          }
+        }
+
+        // Setup mobile category toggle
+        function setupMobileToggle() {
+          mobileCategoryToggle.addEventListener("click", function () {
+            this.classList.toggle("active");
+            categorySidebar.classList.toggle("mobile-show");
+          });
+
+          // Close sidebar when clicking outside on mobile
+          document.addEventListener("click", function (e) {
+            if (
+              window.innerWidth < 992 &&
+              !categorySidebar.contains(e.target) &&
+              !mobileCategoryToggle.contains(e.target) &&
+              categorySidebar.classList.contains("mobile-show")
+            ) {
+              categorySidebar.classList.remove("mobile-show");
+              mobileCategoryToggle.classList.remove("active");
+            }
+          });
+        }
+
+        // Render products for current page
+        function renderProducts() {
+          const startIndex = (currentPage - 1) * itemsPerPage;
+          const endIndex = startIndex + itemsPerPage;
+          const pageProducts = filteredProducts.slice(startIndex, endIndex);
+
+          productGrid.innerHTML = "";
+
+          if (pageProducts.length === 0) {
+            productGrid.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; padding: 40px 20px;">
+              <i class="fas fa-search fa-3x text-muted mb-3"></i>
+              <h3>No products found</h3>
+              <p>Try adjusting your search terms</p>
             </div>
-          </article>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <article class="product-card">
-            <div class="product-img-wrapper"><i class="fas fa-umbrella"></i></div>
-            <div class="product-body">
-              <h3 class="product-title">Purple Haze Parachute</h3>
-              <p class="product-desc">Attractive colors with excellent visibility.</p>
-              <div class="product-meta"><span class="product-size">Sizes: 12-18</span></div>
-              <a href="#" class="btn btn-whatsapp btn-sm w-100" data-whatsapp="Hi! I'd like to order Purple Haze Parachute."><i class="fab fa-whatsapp"></i> Order</a>
-            </div>
-          </article>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <article class="product-card">
-            <div class="product-img-wrapper"><i class="fas fa-umbrella"></i></div>
-            <div class="product-body">
-              <h3 class="product-title">Parachute BWO</h3>
-              <p class="product-desc">Essential Blue Wing Olive in parachute style.</p>
-              <div class="product-meta"><span class="product-size">Sizes: 16-22</span></div>
-              <a href="#" class="btn btn-whatsapp btn-sm w-100" data-whatsapp="Hi! I'd like to order Parachute BWO."><i class="fab fa-whatsapp"></i> Order</a>
-            </div>
-          </article>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <article class="product-card">
-            <div class="product-img-wrapper"><i class="fas fa-umbrella"></i></div>
-            <div class="product-body">
-              <h3 class="product-title">Parachute PMD</h3>
-              <p class="product-desc">Pale Morning Dun with visible post.</p>
-              <div class="product-meta"><span class="product-size">Sizes: 14-18</span></div>
-              <a href="#" class="btn btn-whatsapp btn-sm w-100" data-whatsapp="Hi! I'd like to order Parachute PMD."><i class="fab fa-whatsapp"></i> Order</a>
-            </div>
-          </article>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <article class="product-card">
-            <div class="product-img-wrapper"><i class="fas fa-umbrella"></i></div>
-            <div class="product-body">
-              <h3 class="product-title">Parachute Sulfur</h3>
-              <p class="product-desc">Perfect for summer sulfur hatches.</p>
-              <div class="product-meta"><span class="product-size">Sizes: 14-18</span></div>
-              <a href="#" class="btn btn-whatsapp btn-sm w-100" data-whatsapp="Hi! I'd like to order Parachute Sulfur."><i class="fab fa-whatsapp"></i> Order</a>
-            </div>
-          </article>
-        </div>
-        <div class="col-sm-6 col-lg-4 col-xl-3">
-          <article class="product-card">
-            <div class="product-img-wrapper"><i class="fas fa-umbrella"></i></div>
-            <div class="product-body">
-              <h3 class="product-title">Parachute Hopper</h3>
-              <p class="product-desc">Grasshopper pattern with visible post.</p>
-              <div class="product-meta"><span class="product-size">Sizes: 8-12</span></div>
-              <a href="#" class="btn btn-whatsapp btn-sm w-100" data-whatsapp="Hi! I'd like to order Parachute Hopper."><i class="fab fa-whatsapp"></i> Order</a>
-            </div>
-          </article>
-        </div>
-      </div>
+          `;
+            return;
+          }
 
-      <section class="related-categories rounded-3 p-4">
-        <h2 class="h5 mb-3">Related Categories</h2>
-        <div class="d-flex flex-wrap gap-2">
-          <a href="dry-flies.html" class="btn btn-outline-primary btn-sm">Dry Flies</a>
-          <a href="emergers.html" class="btn btn-outline-primary btn-sm">Emergers</a>
-          <a href="terrestrials.html" class="btn btn-outline-primary btn-sm">Terrestrials</a>
-        </div>
-      </section>
-    </div>
-  </main>
+          pageProducts.forEach((product) => {
+            const productCard = document.createElement("div");
+            productCard.className = "product-grid-item";
+            productCard.innerHTML = `
+            <div class="product-grid-img">
+              <!-- REPLACE placeholder.jpg WITH YOUR ACTUAL IMAGE PATH -->
+              <img src="${product.image}" alt="${product.name}" class="img-fluid" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+              <div class="product-grid-img-placeholder">
+                <i class="fas fa-umbrella"></i>
+              </div>
+            </div>
+            <div class="product-grid-body">
+              <h3 class="product-grid-title">${product.name}</h3>
+              <p class="text-muted mb-2" style="font-size: 0.9rem;">${product.description}</p>
+              <div class="product-grid-meta">
+                <span class="product-grid-price">${product.price}</span>
+                <span class="product-grid-sizes">${product.size}</span>
+              </div>
+              <button class="btn btn-whatsapp mt-2" 
+                onclick="orderProduct('${product.name}', '${product.size}', '${product.price}')">
+                <i class="fab fa-whatsapp me-2"></i> Order Now
+              </button>
+            </div>
+          `;
+            productGrid.appendChild(productCard);
+          });
 
-  <section class="cta-section">
-    <div class="container">
-      <h2 class="cta-title">Order Parachute Flies Today</h2>
-      <p class="cta-text">Stock up on high-visibility parachute patterns. Contact us via WhatsApp for quick ordering.</p>
-      <a href="#" class="btn btn-whatsapp btn-lg" data-whatsapp="Hi! I'd like to order parachute flies."><i class="fab fa-whatsapp"></i> Order on WhatsApp</a>
-    </div>
-  </section>
+          updateResultsCount();
+        }
 
-  <footer>
-    <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4">
-          <div class="footer-brand"><i class="fas fa-fish"></i> Premium Flies</div>
-          <p class="footer-text">Quality hand-tied fishing flies for passionate anglers.</p>
-        </div>
-        <div class="col-6 col-lg-2">
-          <h4 class="footer-title">Categories</h4>
-          <ul class="footer-links">
-            <li><a href="dry-flies.html">Dry Flies</a></li>
-            <li><a href="nymphs.html">Nymphs</a></li>
-            <li><a href="streamers.html">Streamers</a></li>
-          </ul>
-        </div>
-        <div class="col-6 col-lg-2">
-          <h4 class="footer-title">Specialty</h4>
-          <ul class="footer-links">
-            <li><a href="bob-brooks.html">Bob Brooks</a></li>
-            <li><a href="steelhead.html">Steelhead</a></li>
-            <li><a href="saltwater.html">Saltwater</a></li>
-          </ul>
-        </div>
-        <div class="col-lg-4">
-          <h4 class="footer-title">Contact</h4>
-          <ul class="footer-links">
-            <li><a href="mailto:orders@premiumflies.com">orders@premiumflies.com</a></li>
-            <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom"><p>&copy; 2024 Premium Fishing Flies. All rights reserved.</p></div>
-    </div>
-  </footer>
+        // Render pagination
+        function renderPagination() {
+          const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+          pagination.innerHTML = "";
 
-  <a href="#" class="floating-whatsapp" data-whatsapp="Hi! I'd like to order fishing flies." aria-label="Order via WhatsApp"><i class="fab fa-whatsapp"></i></a>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main.min.js"></script>
-</body>
+          if (totalPages <= 1) return;
+
+          // Previous button
+          const prevLi = document.createElement("li");
+          prevLi.className = `page-item ${currentPage === 1 ? "disabled" : ""}`;
+          prevLi.innerHTML = `<a class="page-link" href="#" ${
+            currentPage !== 1
+              ? 'onclick="changePage(' + (currentPage - 1) + ')"'
+              : ""
+          }>«</a>`;
+          pagination.appendChild(prevLi);
+
+          // Page numbers - show max 5 pages
+          const startPage = Math.max(1, currentPage - 2);
+          const endPage = Math.min(totalPages, currentPage + 2);
+
+          for (let i = startPage; i <= endPage; i++) {
+            const li = document.createElement("li");
+            li.className = `page-item ${i === currentPage ? "active" : ""}`;
+            li.innerHTML = `<a class="page-link" href="#" onclick="changePage(${i})">${i}</a>`;
+            pagination.appendChild(li);
+          }
+
+          // Next button
+          const nextLi = document.createElement("li");
+          nextLi.className = `page-item ${
+            currentPage === totalPages ? "disabled" : ""
+          }`;
+          nextLi.innerHTML = `<a class="page-link" href="#" ${
+            currentPage !== totalPages
+              ? 'onclick="changePage(' + (currentPage + 1) + ')"'
+              : ""
+          }>»</a>`;
+          pagination.appendChild(nextLi);
+        }
+
+        // Change page
+        window.changePage = function (page) {
+          currentPage = page;
+          renderProducts();
+          renderPagination();
+          window.scrollTo({
+            top: productGrid.offsetTop - 100,
+            behavior: "smooth",
+          });
+        };
+
+        // Setup search functionality
+        function setupSearch() {
+          searchBtn.addEventListener("click", performSearch);
+          searchInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") performSearch();
+          });
+
+          // Real-time search on mobile
+          if (window.innerWidth < 768) {
+            searchInput.addEventListener("input", debounce(performSearch, 300));
+          }
+        }
+
+        // Debounce function for search
+        function debounce(func, wait) {
+          let timeout;
+          return function executedFunction(...args) {
+            const later = () => {
+              clearTimeout(timeout);
+              func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+          };
+        }
+
+        // Perform search
+        function performSearch() {
+          const searchTerm = searchInput.value.toLowerCase().trim();
+
+          if (searchTerm === "") {
+            filteredProducts = [...parachutes];
+          } else {
+            filteredProducts = parachutes.filter(
+              (product) =>
+                product.name.toLowerCase().includes(searchTerm) ||
+                product.description.toLowerCase().includes(searchTerm) ||
+                product.size.toLowerCase().includes(searchTerm)
+            );
+          }
+
+          currentPage = 1;
+          renderProducts();
+          renderPagination();
+        }
+
+        // Update results count
+        function updateResultsCount() {
+          const start = (currentPage - 1) * itemsPerPage + 1;
+          const end = Math.min(
+            currentPage * itemsPerPage,
+            filteredProducts.length
+          );
+          const total = filteredProducts.length;
+
+          resultsCount.textContent = `Showing ${start}-${end} of ${total} products`;
+
+          if (searchInput.value.trim() !== "") {
+            resultsCount.textContent += ` for "${searchInput.value}"`;
+          }
+        }
+
+        // Order product function
+        window.orderProduct = function (productName, size, price) {
+          const message = `Hi! I'd like to order:\n\nProduct: ${productName}\nSize: ${size}\nPrice: ${price}\n\nPlease let me know about availability and shipping.`;
+          const whatsappUrl = `https://wa.me/254728498094?text=${encodeURIComponent(
+            message
+          )}`;
+          window.open(whatsappUrl, "_blank");
+        };
+
+        // Bubble/Snowfall Effect
+        function createBubbles() {
+          const bubblesContainer = document.getElementById("bubbles");
+          const bubbleCount = 30;
+
+          for (let i = 0; i < bubbleCount; i++) {
+            const bubble = document.createElement("div");
+            bubble.classList.add("bubble");
+
+            const size = Math.random() * 15 + 5;
+            bubble.style.width = `${size}px`;
+            bubble.style.height = `${size}px`;
+            bubble.style.left = `${Math.random() * 100}vw`;
+
+            const duration = Math.random() * 20 + 10;
+            const delay = Math.random() * 10;
+            bubble.style.animationDuration = `${duration}s`;
+            bubble.style.animationDelay = `${delay}s`;
+            bubble.style.opacity = Math.random() * 0.3 + 0.1;
+
+            bubblesContainer.appendChild(bubble);
+          }
+        }
+
+        // Initialize on load
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", init);
+        } else {
+          init();
+        }
+      })();
+    </script>
+  </body>
 </html>

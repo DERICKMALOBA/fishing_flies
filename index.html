@@ -8,313 +8,1644 @@
   <meta name="author" content="Premium Fishing Flies">
   <meta name="robots" content="index, follow">
   <title>Premium Hand-Tied Fishing Flies | Dry Flies, Nymphs, Streamers & More</title>
-  <link rel="canonical" href="index.html">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
-  <link href="css/styles.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <style>
+    :root {
+      --primary-blue: #1a365d;
+      --secondary-blue: #2d5a8c;
+      --accent-gold: #d4af37;
+      --accent-copper: #b87333;
+      --accent-aqua: #48cae4;
+      --light-bg: #f8f9fa;
+      --dark-bg: #0f172a;
+      --text-light: #f8f9fa;
+      --text-dark: #1a202c;
+      --card-bg: rgba(255, 255, 255, 0.05);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text-dark);
+      background-color: var(--light-bg);
+      overflow-x: hidden;
+      line-height: 1.6;
+      padding-top: 80px; /* For fixed navbar */
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    /* Header & Navigation - IMPROVED FOR SMALL SCREENS */
+    .navbar {
+      background-color: rgba(15, 23, 42, 0.98) !important;
+      backdrop-filter: blur(10px);
+      padding: 12px 0;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border-bottom: 2px solid var(--accent-gold);
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1050;
+    }
+
+    .navbar-brand {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 1.6rem;
+      color: var(--accent-gold) !important;
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar-brand i {
+      margin-right: 8px;
+      font-size: 1.3rem;
+    }
+
+    .navbar-brand .brand-full {
+      display: inline;
+    }
+
+    .navbar-brand .brand-short {
+      display: none;
+    }
+
+    .nav-link {
+      color: var(--text-light) !important;
+      font-weight: 500;
+      padding: 8px 15px !important;
+      transition: var(--transition);
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover {
+      color: var(--accent-gold) !important;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 15px;
+      right: 15px;
+      height: 2px;
+      background-color: var(--accent-gold);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .dropdown-menu {
+      background-color: var(--dark-bg);
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      min-width: 250px;
+    }
+
+    .dropdown-item {
+      color: var(--text-light);
+      padding: 8px 20px;
+      transition: var(--transition);
+    }
+
+    .dropdown-item:hover {
+      background-color: rgba(212, 175, 55, 0.1);
+      color: var(--accent-gold);
+    }
+
+    .dropdown-divider {
+      border-color: rgba(212, 175, 55, 0.2);
+    }
+
+    .dropdown-toggle::after {
+      color: var(--accent-gold);
+      margin-left: 5px;
+    }
+
+    .search-container {
+      position: relative;
+      margin-left: 15px;
+    }
+
+    .search-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .search-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--accent-gold);
+    }
+
+    .search-form {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 300px;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 10px;
+      display: none;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .search-form.show {
+      display: block;
+      animation: slideDown 0.3s ease;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .search-input {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
+    }
+
+    .search-results {
+      max-height: 300px;
+      overflow-y: auto;
+    }
+
+    .search-result-item {
+      padding: 10px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      color: white;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
+
+    .search-result-item:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--accent-gold);
+    }
+
+    .search-result-item i {
+      margin-right: 10px;
+      color: var(--accent-gold);
+    }
+
+    /* Hero Section - IMPROVED FOR SMALL SCREENS */
+    .hero-section {
+      background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.8)), url('images/BB010-300x199.jpg');
+      background-size: cover;
+      background-position: center;
+      color: var(--text-light);
+      padding: 80px 0 60px;
+      position: relative;
+      overflow: hidden;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23d4af37' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+
+    .hero-title {
+      font-size: 2.8rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+
+    .hero-highlight {
+      color: var(--accent-gold);
+      display: inline-block;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      max-width: 100%;
+      opacity: 0.9;
+      line-height: 1.6;
+    }
+
+    .fly-carousel {
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      margin-top: 20px;
+    }
+
+    .carousel-item img {
+      height: 400px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .carousel-caption {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(5px);
+      padding: 20px;
+      border-radius: 10px;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      width: auto;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+      width: 50px;
+      height: 50px;
+      background: rgba(15, 23, 42, 0.7);
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      margin: 0 15px;
+    }
+
+    /* Feature Cards */
+    .feature-card {
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition: var(--transition);
+      height: 100%;
+      border-top: 4px solid var(--accent-gold);
+      margin-bottom: 20px;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--accent-gold);
+      margin-bottom: 20px;
+    }
+
+    .feature-card h3 {
+      color: var(--primary-blue);
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+
+    /* Products Section */
+    .products-section {
+      padding: 60px 0;
+      background-color: #f1f5f9;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      color: var(--primary-blue);
+      font-size: 2.2rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: var(--accent-gold);
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+      transition: var(--transition);
+      height: 100%;
+      margin-bottom: 30px;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .product-card:hover .product-img {
+      transform: scale(1.05);
+    }
+
+    .product-info {
+      padding: 20px;
+    }
+
+    .product-category {
+      display: inline-block;
+      padding: 5px 15px;
+      background-color: rgba(212, 175, 55, 0.1);
+      color: var(--accent-gold);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .product-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--primary-blue);
+      line-height: 1.3;
+    }
+
+    .product-price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent-copper);
+      margin-bottom: 15px;
+    }
+
+    /* Payment Methods Section */
+    .payment-section {
+      padding: 40px 0;
+      background-color: white;
+    }
+
+    .payment-card {
+      background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      border-radius: 12px;
+      padding: 25px;
+      border: 1px solid rgba(0,0,0,0.1);
+      height: 100%;
+    }
+
+    .payment-icon {
+      font-size: 2rem;
+      color: var(--accent-gold);
+      margin-bottom: 15px;
+    }
+
+    /* Testimonials */
+    .testimonials-section {
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+      padding: 60px 0;
+      position: relative;
+    }
+
+    .testimonial-card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      padding: 25px;
+      height: 100%;
+      border-left: 4px solid var(--accent-gold);
+      transition: var(--transition);
+      margin-bottom: 20px;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      background-color: rgba(255, 255, 255, 0.07);
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      margin-bottom: 15px;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--accent-gold);
+      font-size: 0.9rem;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+      color: var(--text-light);
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+
+    /* Custom Fly Design Section */
+    .custom-design-section {
+      background-color: #f1f5f9;
+      padding: 40px 0;
+    }
+
+    /* Buttons */
+    .btn-primary-custom {
+      background-color: var(--accent-gold);
+      color: var(--dark-bg);
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary-custom:hover {
+      background-color: var(--accent-copper);
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    .btn-whatsapp {
+      background-color: #25D366;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.95rem;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #128C7E;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-outline-custom {
+      background-color: transparent;
+      color: var(--accent-gold);
+      border: 2px solid var(--accent-gold);
+      padding: 10px 25px;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: var(--transition);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-outline-custom:hover {
+      background-color: var(--accent-gold);
+      color: var(--dark-bg);
+      transform: translateY(-3px);
+    }
+
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      transition: var(--transition);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+      70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+    }
+
+    /* Footer */
+    .footer {
+      background-color: var(--dark-bg);
+      color: var(--text-light);
+      padding: 60px 0 25px;
+    }
+
+    .footer h4 {
+      color: var(--accent-gold);
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 25px;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent-gold);
+      padding-left: 5px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .footer-social a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: white;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .footer-social a:hover {
+      background-color: var(--accent-gold);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 25px;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.85rem;
+    }
+
+    /* Responsive Adjustments - IMPROVED */
+    @media (max-width: 1200px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      
+      .cta-title {
+        font-size: 1.8rem;
+      }
+      
+      .section-title {
+        font-size: 1.8rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding-top: 70px;
+      }
+      
+      .hero-section {
+        padding: 50px 0 40px;
+        min-height: auto;
+      }
+      
+      .hero-title {
+        font-size: 1.9rem;
+        margin-bottom: 15px;
+      }
+      
+      .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+      
+      .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+      }
+      
+      .cta-title {
+        font-size: 1.6rem;
+      }
+      
+      .carousel-item img {
+        height: 300px;
+      }
+      
+      .carousel-caption {
+        padding: 15px;
+        font-size: 0.9rem;
+      }
+      
+      .navbar-brand .brand-full {
+        display: none;
+      }
+      
+      .navbar-brand .brand-short {
+        display: inline;
+      }
+      
+      .navbar-brand {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .hero-title {
+        font-size: 1.7rem;
+      }
+      
+      .btn-primary-custom, .btn-whatsapp, .btn-outline-custom {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+      }
+      
+      .carousel-item img {
+        height: 250px;
+      }
+      
+      .carousel-caption {
+        position: relative;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin-top: -5px;
+        border-radius: 0 0 15px 15px;
+      }
+      
+      .search-form {
+        width: 280px;
+        right: -60px;
+      }
+      
+      .product-card {
+        margin-bottom: 20px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero-title {
+        font-size: 1.5rem;
+      }
+      
+      .navbar-brand {
+        font-size: 1.1rem;
+      }
+      
+      .search-form {
+        width: 250px;
+        right: -80px;
+      }
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .mobile-spacing {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    /* Bubbles/Snowfall Effect */
+    #bubbles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -1;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(184, 115, 51, 0.05) 100%);
+      border-radius: 50%;
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) translateX(0);
+      }
+      100% {
+        transform: translateY(-100px) translateX(20px);
+      }
+    }
+
+    .search-results.active {
+      display: block;
+    }
+
+    mark {
+      background-color: rgba(212, 175, 55, 0.3);
+      color: white;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+
+    .category-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: var(--transition);
+      height: 100%;
+      margin-bottom: 20px;
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    .category-img {
+      height: 180px;
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .category-info {
+      padding: 20px;
+    }
+
+    .category-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--primary-blue);
+      margin-bottom: 10px;
+    }
+
+    .category-count {
+      color: var(--accent-copper);
+      font-size: 0.9rem;
+      margin-bottom: 15px;
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+  <!-- Bubbles/Snowfall Effect Container -->
+  <div id="bubbles"></div>
+
+  <!-- Header & Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <i class="fas fa-fish"></i> Premium Flies
+      <a class="navbar-brand" href="#">
+        <i class="fas fa-fish"></i>
+        <span class="brand-full">Premium Fishing Flies</span>
+        <span class="brand-short">Premium Flies</span>
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
+      
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
           <li class="nav-item">
-            <a class="nav-link active" href="index.html">Home</a>
+            <a class="nav-link" href="#home">Home</a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Categories</a>
+            <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown">
+              Products
+            </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="dry-flies.html">Dry Flies</a></li>
               <li><a class="dropdown-item" href="parachutes.html">Parachutes</a></li>
               <li><a class="dropdown-item" href="nymphs.html">Nymphs</a></li>
-              <li><a class="dropdown-item" href="emergers.html">Emergers</a></li>
-              <li><a class="dropdown-item" href="midges.html">Midges</a></li>
-              <li><a class="dropdown-item" href="bh-nymphs.html">Beadhead Nymphs</a></li>
-              <li><a class="dropdown-item" href="tungsten-nymphs.html">Tungsten Nymphs</a></li>
-              <li><a class="dropdown-item" href="terrestrials.html">Terrestrials</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="bob-brooks.html">Bob Brooks Patterns</a></li>
-              <li><a class="dropdown-item" href="shane-stalcup.html">Shane Stalcup Patterns</a></li>
-              <li><a class="dropdown-item" href="skip-morris.html">Skip Morris Patterns</a></li>
-              <li><a class="dropdown-item" href="rene-harrop.html">Rene Harrop Patterns</a></li>
-              <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="streamers.html">Streamers</a></li>
-              <li><a class="dropdown-item" href="bh-streamers.html">Beadhead Streamers</a></li>
-              <li><a class="dropdown-item" href="czech-nymphs.html">Czech Nymphs</a></li>
-              <li><a class="dropdown-item" href="warmwater.html">Warmwater Flies</a></li>
-              <li><a class="dropdown-item" href="poppers.html">Poppers</a></li>
-              <li><a class="dropdown-item" href="steelhead.html">Steelhead Flies</a></li>
-              <li><a class="dropdown-item" href="saltwater.html">Saltwater Flies</a></li>
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
+            <a class="nav-link" href="#features">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#testimonials">Testimonials</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item d-none d-lg-block ms-lg-3">
+            <a class="btn btn-primary-custom" href="#order">Order Now</a>
+          </li>
+          
+          <!-- Search Button -->
+          <li class="nav-item search-container">
+            <button class="search-btn" id="searchToggle">
+              <i class="fas fa-search"></i>
+            </button>
+            <div class="search-form" id="searchForm">
+              <input type="text" class="search-input" placeholder="Search flies, patterns, categories..." id="searchInput">
+              <div class="search-results" id="searchResults">
+                <!-- Search results will be populated here -->
+              </div>
+            </div>
           </li>
         </ul>
-        <div class="search-box d-none d-lg-block">
-          <i class="fas fa-search"></i>
-          <input type="text" id="searchInput" placeholder="Search flies..." aria-label="Search products">
-          <div id="searchResults" class="search-results"></div>
+        
+        <!-- Order Now button for mobile -->
+        <div class="d-lg-none text-center mt-3">
+          <a class="btn btn-primary-custom w-100" href="#order">Order Now</a>
         </div>
       </div>
     </div>
   </nav>
 
-  <section class="hero-section">
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-lg-7 hero-content">
-          <h1 class="hero-title">Premium Hand-Tied Fishing Flies</h1>
-          <p class="hero-subtitle">Expertly crafted flies for every fishing condition. From classic dry flies to specialty patterns, our hand-tied collection helps you catch more fish.</p>
-          <div class="d-flex flex-wrap gap-3">
-            <a href="#categories" class="btn btn-primary-custom">
-              <i class="fas fa-th-large"></i> Browse Categories
+        <div class="col-lg-6 fade-in">
+          <h1 class="hero-title">Premium <span class="hero-highlight">Hand-Tied</span> Fishing Flies</h1>
+          <p class="hero-subtitle">Expertly crafted flies for every fishing condition. From classic dry flies to specialty patterns, our hand-tied collection helps you catch more fish with professional-grade materials.</p>
+         <div class="alert alert-info mb-3" style="background-color: rgba(72, 202, 228, 0.1);">
+<i class="fas fa-globe me-2 text-white"></i>
+  <strong style="color: #ffffff;">
+    We are exporters, wholesalers and retailers of artificial fishing flies
+  </strong>
+</div>
+
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <a href="#products" class="btn btn-primary-custom">
+              <i class="fas fa-fish me-2"></i> Explore Collection
             </a>
-            <a href="#" class="btn btn-whatsapp" data-whatsapp="Hi! I'd like to order fishing flies.">
-              <i class="fab fa-whatsapp"></i> Order on WhatsApp
+            <a href="#order" class="btn btn-outline-custom">
+              <i class="fas fa-shopping-cart me-2"></i> Shop Now
             </a>
           </div>
         </div>
-        <div class="col-lg-5 d-none d-lg-block text-center">
-          <i class="fas fa-fish" style="font-size: 12rem; color: rgba(0,119,182,0.3);"></i>
+        <div class="col-lg-6 fade-in">
+          <!-- Image Carousel -->
+          <div id="flyCarousel" class="carousel slide fly-carousel" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#flyCarousel" data-bs-slide-to="0" class="active"></button>
+              <button type="button" data-bs-target="#flyCarousel" data-bs-slide-to="1"></button>
+              <button type="button" data-bs-target="#flyCarousel" data-bs-slide-to="2"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="images/dryflies/Ausable-wuff.jpg" class="d-block w-100" alt="Premium Fishing Flies Collection">
+                <div class="carousel-caption">
+                  <h5>Hand-Tied Excellence</h5>
+                  <p>Each fly is meticulously crafted by expert artisans</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="images/parachutes/yellow-sallie-snowshoe.jpg" class="d-block w-100" alt="Fishing Flies in Action">
+                <div class="carousel-caption">
+                  <h5>Proven Patterns</h5>
+                  <p>Field-tested flies that consistently attract fish</p>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="images/BN055-300x199.jpg" class="d-block w-100" alt="Premium Materials">
+                <div class="carousel-caption">
+                  <h5>Premium Materials</h5>
+                  <p>Only the finest materials for durability and performance</p>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#flyCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#flyCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-5" id="categories">
+  <!-- Products Section -->
+  <section class="products-section" id="products">
     <div class="container">
-      <h2 class="section-title">Shop by Category</h2>
-      <p class="section-subtitle">Explore our comprehensive selection of hand-tied fishing flies, from classic patterns to modern innovations.</p>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-          <article class="category-card">
-            <div class="category-card-img">
-              <i class="fas fa-feather-alt"></i>
-            </div>
-            <div class="category-card-body">
-              <h3 class="category-card-title">Dry Flies</h3>
-              <p class="category-card-text">Classic surface patterns for rising trout. Perfect for matching hatches.</p>
-              <a href="dry-flies.html" class="category-link">Shop Dry Flies <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <article class="category-card">
-            <div class="category-card-img">
-              <i class="fas fa-umbrella"></i>
-            </div>
-            <div class="category-card-body">
-              <h3 class="category-card-title">Parachutes</h3>
-              <p class="category-card-text">High-visibility parachute patterns for technical dry fly fishing.</p>
-              <a href="parachutes.html" class="category-link">Shop Parachutes <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <article class="category-card">
-            <div class="category-card-img">
-              <i class="fas fa-water"></i>
-            </div>
-            <div class="category-card-body">
-              <h3 class="category-card-title">Nymphs</h3>
-              <p class="category-card-text">Subsurface patterns that imitate aquatic insects in their nymph stage.</p>
-              <a href="nymphs.html" class="category-link">Shop Nymphs <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <article class="category-card">
-            <div class="category-card-img">
-              <i class="fas fa-arrow-up"></i>
-            </div>
-            <div class="category-card-body">
-              <h3 class="category-card-title">Emergers</h3>
-              <p class="category-card-text">Transition patterns for insects emerging from water to air.</p>
-              <a href="emergers.html" class="category-link">Shop Emergers <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <article class="category-card">
-            <div class="category-card-img">
-              <i class="fas fa-bug"></i>
-            </div>
-            <div class="category-card-body">
-              <h3 class="category-card-title">Midges</h3>
-              <p class="category-card-text">Tiny patterns for selective trout feeding on small insects.</p>
-              <a href="midges.html" class="category-link">Shop Midges <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <article class="category-card">
-            <div class="category-card-img">
-              <i class="fas fa-circle"></i>
-            </div>
-            <div class="category-card-body">
-              <h3 class="category-card-title">Beadhead Nymphs</h3>
-              <p class="category-card-text">Weighted nymphs with brass or tungsten beads for deep water.</p>
-              <a href="bh-nymphs.html" class="category-link">Shop BH Nymphs <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <article class="category-card">
-            <div class="category-card-img">
-              <i class="fas fa-weight-hanging"></i>
-            </div>
-            <div class="category-card-body">
-              <h3 class="category-card-title">Tungsten Nymphs</h3>
-              <p class="category-card-text">Heavy tungsten beads for fast-sinking Euro nymphing techniques.</p>
-              <a href="tungsten-nymphs.html" class="category-link">Shop Tungsten <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <article class="category-card">
-            <div class="category-card-img">
-              <i class="fas fa-spider"></i>
-            </div>
-            <div class="category-card-body">
-              <h3 class="category-card-title">Terrestrials</h3>
-              <p class="category-card-text">Land-based insect patterns like ants, beetles, and hoppers.</p>
-              <a href="terrestrials.html" class="category-link">Shop Terrestrials <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <article class="category-card">
-            <div class="category-card-img">
-              <i class="fas fa-fish"></i>
-            </div>
-            <div class="category-card-body">
-              <h3 class="category-card-title">Streamers</h3>
-              <p class="category-card-text">Baitfish imitations for aggressive predatory fish.</p>
-              <a href="streamers.html" class="category-link">Shop Streamers <i class="fas fa-arrow-right"></i></a>
-            </div>
-          </article>
+      <div class="row">
+        <div class="col-12 text-center mb-5 fade-in">
+          <h2 class="section-title">Our Premium Collections</h2>
+          <p class="text-muted">Explore our hand-tied flies for every fishing scenario</p>
         </div>
       </div>
-      <div class="text-center mt-5">
-        <p class="text-muted mb-3">View all 19 categories including specialty designer patterns</p>
-        <a href="contact.html" class="btn btn-primary-custom">
-          <i class="fas fa-th-list"></i> View All Categories
-        </a>
+      <div class="row">
+        <!-- Dry Flies Card -->
+        <div class="col-md-6 col-lg-3 fade-in">
+          <div class="product-card">
+            <div class="product-img-container overflow-hidden">
+              <img src="images/dryflies/Ausable-wuff.jpg" alt="Dry Flies" class="product-img">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Dry Flies</span>
+              <h3 class="product-name">Ausable Wulff</h3>
+              <p class="product-description">Classic dry fly patterns for surface fishing. Perfect for trout and grayling.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <a href="dry-flies.html" class="btn btn-sm btn-primary-custom">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Nymphs Card -->
+        <div class="col-md-6 col-lg-3 fade-in">
+          <div class="product-card">
+            <div class="product-img-container overflow-hidden">
+              <img src="images/nymph/bead-copper.jpg" alt="Nymphs" class="product-img">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Nymphs</span>
+              <h3 class="product-name">B.H Copper Nymph</h3>
+              <p class="product-description">Subsurface patterns that imitate aquatic insects in their nymph stage.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <a href="nymphs.html" class="btn btn-sm btn-primary-custom">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Streamers Card -->
+        <div class="col-md-6 col-lg-3 fade-in">
+          <div class="product-card">
+            <div class="product-img-container overflow-hidden">
+              <img src="images/streamers/bh-woolly-bugger.jpg" alt="Streamers" class="product-img">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Streamers</span>
+              <h3 class="product-name">BH Woolly Bugger</h3>
+              <p class="product-description">Baitfish imitations for aggressive predatory fish. Perfect for bass and pike.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <a href="streamers.html" class="btn btn-sm btn-primary-custom">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Saltwater Card -->
+        <div class="col-md-6 col-lg-3 fade-in">
+          <div class="product-card">
+            <div class="product-img-container overflow-hidden">
+              <img src="images/parachutes/para-x.jpg" alt="Saltwater" class="product-img">
+            </div>
+            <div class="product-info">
+              <span class="product-category">Parachutes</span>
+              <h3 class="product-name">Para X Peacock Body</h3>
+              <p class="product-description">Specialty flies designed for saltwater species like bonefish and tarpon.</p>
+              <div class="d-flex justify-content-between align-items-center mt-3">
+                <a href="parachutes.html" class="btn btn-sm btn-primary-custom">View Details</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="features-section">
+  <!-- Custom Fly Design Section -->
+  <section class="custom-design-section fade-in">
     <div class="container">
-      <h2 class="section-title">Why Choose Our Hand-Tied Flies?</h2>
-      <p class="section-subtitle">Every fly is meticulously crafted by experienced tyers using premium materials.</p>
+      <div class="row">
+        <div class="col-12 text-center mb-4">
+          <h2 class="section-title">Custom Fly Design Patterns</h2>
+          <p class="text-muted">Need a unique pattern tailored to your specific fishing needs?</p>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="feature-card p-4 text-center">
+            <div class="feature-icon">
+              <i class="fas fa-palette"></i>
+            </div>
+            <h3>Custom Fly Design Service</h3>
+            <p>If you need custom fly design patterns for specific fishing conditions, species, or preferences, our expert tier can create unique patterns just for you. Contact us with your requirements and we'll design flies that match your exact needs.</p>
+            <div class="mt-4">
+              <a href="https://wa.me/254728498094?text=Hi!%20I'm%20interested%20in%20custom%20fly%20design%20patterns" class="btn btn-primary-custom">
+                <i class="fas fa-comment-dots me-2"></i> Inquire About Custom Designs
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Payment Methods Section -->
+<section class="payment-section fade-in" id="payment">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h2 class="section-title">Payment Methods</h2>
+        <p class="text-muted">Secure and convenient payment options</p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- M-Pesa -->
+      <div class="col-md-6">
+        <div class="payment-card text-center">
+          <div class="payment-icon">
+            <img
+              src="images/payment/mpesa.png"
+              alt="M-Pesa"
+              class="payment-logo"
+            />
+          </div>
+
+          <h3>M-Pesa</h3>
+          <p>Make instant payments via M-Pesa</p>
+
+          <div class="payment-details mt-3">
+            <h4 class="text-primary">Phone Number:</h4>
+            <h3 class="text-success">0728 498 094</h3>
+            <p class="text-muted mt-2">
+              Send payment to this number and WhatsApp us the transaction code
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Equity Bank -->
+      <div class="col-md-6">
+        <div class="payment-card text-center">
+          <div class="payment-icon">
+            <img
+              src="images/payment/equity.png"
+              alt="Equity Bank"
+              class="payment-logo"
+            />
+          </div>
+
+          <h3>Equity Bank</h3>
+          <p>Direct bank transfer option</p>
+
+          <div class="payment-details mt-3">
+            <h4 class="text-primary">Account Details:</h4>
+            <p class="mb-1"><strong>Bank:</strong> Equity Bank</p>
+            <p class="mb-1"><strong>Account Name:</strong> Wilson Kasarago</p>
+            <p class="mb-1"><strong>Account Number:</strong> 0470191415862</p>
+            <p class="text-muted mt-2">
+              Send proof of payment to our WhatsApp for order processing
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Features Section -->
+  <section class="py-5" id="features">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center mb-5 fade-in">
+          <h2 class="section-title">Why Choose Our Flies</h2>
+          <p class="text-muted">Superior craftsmanship for the discerning angler</p>
+        </div>
+      </div>
       <div class="row g-4">
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
+        <div class="col-md-6 col-lg-3 fade-in">
+          <div class="feature-card p-4 text-center">
             <div class="feature-icon">
               <i class="fas fa-hand-sparkles"></i>
             </div>
-            <h3 class="feature-title">Hand-Tied Quality</h3>
-            <p class="feature-text">Each fly is individually tied by skilled artisans for consistent quality and durability.</p>
+            <h3>Hand-Tied Excellence</h3>
+            <p>Each fly is meticulously hand-tied by experienced artisans using traditional techniques.</p>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
+        <div class="col-md-6 col-lg-3 fade-in">
+          <div class="feature-card p-4 text-center">
             <div class="feature-icon">
-              <i class="fas fa-gem"></i>
+              <i class="fas fa-award"></i>
             </div>
-            <h3 class="feature-title">Premium Materials</h3>
-            <p class="feature-text">We use only the finest hooks, feathers, and synthetic materials for lasting performance.</p>
+            <h3>Premium Materials</h3>
+            <p>We source only the finest hooks, feathers, and synthetic materials for durability.</p>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
+        <div class="col-md-6 col-lg-3 fade-in">
+          <div class="feature-card p-4 text-center">
             <div class="feature-icon">
-              <i class="fas fa-truck-fast"></i>
+              <i class="fas fa-trophy"></i>
             </div>
-            <h3 class="feature-title">Fast Shipping</h3>
-            <p class="feature-text">Quick processing and delivery so you can get on the water faster.</p>
+            <h3>Proven Patterns</h3>
+            <p>Our patterns are field-tested and proven to attract fish in diverse conditions.</p>
           </div>
         </div>
-        <div class="col-md-6 col-lg-3">
-          <div class="feature-card">
+        <div class="col-md-6 col-lg-3 fade-in">
+          <div class="feature-card p-4 text-center">
             <div class="feature-icon">
-              <i class="fas fa-comments"></i>
+              <i class="fas fa-shipping-fast"></i>
             </div>
-            <h3 class="feature-title">Expert Advice</h3>
-            <p class="feature-text">Our team provides personalized recommendations for your local waters.</p>
+            <h3>Fast Shipping</h3>
+            <p>Order by 2pm and receive your flies within 2-3 business days.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="cta-section">
+  <!-- Testimonials Section -->
+  <section class="testimonials-section" id="testimonials">
     <div class="container">
-      <h2 class="cta-title">Ready to Catch More Fish?</h2>
-      <p class="cta-text">Contact us via WhatsApp, email, or phone to place your order. We ship worldwide and offer custom fly selections.</p>
-      <a href="#" class="btn btn-whatsapp btn-lg" data-whatsapp="Hi! I'd like to place an order for fishing flies.">
-        <i class="fab fa-whatsapp"></i> Order Now on WhatsApp
-      </a>
+      <div class="row">
+        <div class="col-12 text-center mb-5 fade-in">
+          <h2 class="section-title text-white">What Anglers Say</h2>
+          <p class="text-light opacity-75">Real testimonials from satisfied customers</p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4 fade-in">
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "These flies are exceptional! The quality is far beyond what I've found elsewhere. Caught my personal best brown trout on one of their dry flies."
+            </div>
+            <div class="testimonial-author">Mark T., Colorado</div>
+            <div class="rating mt-2">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 fade-in">
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "The attention to detail is incredible. Every fly is perfectly tied and durable. Their customer service is outstanding too!"
+            </div>
+            <div class="testimonial-author">Sarah L., Montana</div>
+            <div class="rating mt-2">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 fade-in">
+          <div class="testimonial-card">
+            <div class="testimonial-text">
+              "Ordered a custom set for my saltwater trip. The flies held up perfectly against aggressive fish. Will be ordering again!"
+            </div>
+            <div class="testimonial-author">James R., Florida</div>
+            <div class="rating mt-2">
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+              <i class="fas fa-star text-warning"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
+  <!-- CTA Section -->
+  <section class="cta-section" id="order">
     <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4">
-          <div class="footer-brand">
-            <i class="fas fa-fish"></i> Premium Flies
-          </div>
-          <p class="footer-text">Quality hand-tied fishing flies for passionate anglers. Every pattern crafted with care for optimal performance on the water.</p>
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center fade-in">
+          <h2 class="cta-title">Ready to Catch More Fish?</h2>
+          <p class="mb-4">Contact us via WhatsApp for custom orders, bulk discounts, and personalized recommendations for your local waters.</p>
+          <a href="https://wa.me/254728498094?text=Hi!%20I'm%20interested%20in%20your%20premium%20fishing%20flies" class="btn btn-whatsapp btn-lg" data-whatsapp="Hi! I'm interested in your premium fishing flies">
+            <i class="fab fa-whatsapp me-2"></i> Order on WhatsApp
+          </a>
+          <p class="mt-4">Or call us: <strong>+254 728 498 094</strong></p>
         </div>
-        <div class="col-6 col-lg-2">
-          <h4 class="footer-title">Categories</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4 mb-lg-0 fade-in">
+          <h4><i class="fas fa-fish me-2"></i> Premium Fishing Flies</h4>
+          <p class="mt-3">Quality hand-tied fishing flies for passionate anglers. Every pattern crafted with care for optimal performance on the water.</p>
+          <div class="footer-social">
+            <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4 mb-md-0 fade-in">
+          <h4>Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0 fade-in">
+          <h4>Product Categories</h4>
           <ul class="footer-links">
             <li><a href="dry-flies.html">Dry Flies</a></li>
             <li><a href="nymphs.html">Nymphs</a></li>
             <li><a href="streamers.html">Streamers</a></li>
-            <li><a href="emergers.html">Emergers</a></li>
-            <li><a href="midges.html">Midges</a></li>
+            <li><a href="parachutes.html">Parachutes</a></li>
           </ul>
         </div>
-        <div class="col-6 col-lg-2">
-          <h4 class="footer-title">Specialty</h4>
+        <div class="col-lg-3 col-md-6 fade-in">
+          <h4>Contact Info</h4>
           <ul class="footer-links">
-            <li><a href="bob-brooks.html">Bob Brooks</a></li>
-            <li><a href="shane-stalcup.html">Shane Stalcup</a></li>
-            <li><a href="steelhead.html">Steelhead</a></li>
-            <li><a href="saltwater.html">Saltwater</a></li>
-            <li><a href="warmwater.html">Warmwater</a></li>
+            <li><i class="fas fa-map-marker-alt me-2"></i> Dagoretti </li>
+            <li><i class="fas fa-phone me-2"></i> +254728498094</li>
+            <li><i class="fas fa-envelope me-2"></i> wilsonrufai@yahoo.com</li>
+            <li><i class="fab fa-whatsapp me-2"></i> WhatsApp: +254728498094</li>
           </ul>
-        </div>
-        <div class="col-lg-4">
-          <h4 class="footer-title">Contact Us</h4>
-          <ul class="footer-links">
-            <li><i class="fab fa-whatsapp me-2"></i> <a href="#" data-whatsapp="Hi!">WhatsApp Order</a></li>
-            <li><i class="fas fa-envelope me-2"></i> <a href="mailto:orders@premiumflies.com">orders@premiumflies.com</a></li>
-            <li><i class="fas fa-phone me-2"></i> <a href="tel:+1234567890">+1 (234) 567-890</a></li>
-          </ul>
+          <div class="mt-4">
+            <h5>Payment Methods</h5>
+            <p class="small">M-Pesa: 0728498094</p>
+            <p class="small">Bank: Wilson Kasarago<br>A/C: 0470191415862</p>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2024 Premium Fishing Flies. All rights reserved. | <a href="contact.html" class="text-white">Contact</a></p>
+      <div class="footer-bottom fade-in">
+        <p>&copy; <span id="currentYear"></span> Premium Fishing Flies. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
-  <a href="#" class="floating-whatsapp" data-whatsapp="Hi! I'd like to order fishing flies." aria-label="Order via WhatsApp">
+  <!-- Floating WhatsApp Button -->
+  <a href="https://wa.me/254728498094?text=Hi!%20I'm%20interested%20in%20your%20premium%20fishing%20flies" class="whatsapp-float" target="_blank" data-whatsapp="Hi! I'm interested in your premium fishing flies">
     <i class="fab fa-whatsapp"></i>
   </a>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/main.min.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      const WHATSAPP_NUMBER = '+254728498094';
+      const WHATSAPP_MESSAGE = 'Hello! I would like to order fishing flies from your catalog.';
+
+      const products = [
+        { name: 'Adams Dry Fly', category: 'dry-flies', url: 'dry-flies.html' },
+        { name: 'Royal Coachman', category: 'dry-flies', url: 'dry-flies.html' },
+        { name: 'Elk Hair Caddis', category: 'dry-flies', url: 'dry-flies.html' },
+        { name: 'Blue Wing Olive', category: 'dry-flies', url: 'dry-flies.html' },
+        { name: 'Adams Parachute', category: 'parachutes', url: 'parachutes.html' },
+        { name: 'Purple Haze Parachute', category: 'parachutes', url: 'parachutes.html' },
+        { name: 'Parachute BWO', category: 'parachutes', url: 'parachutes.html' },
+        { name: 'Pheasant Tail Nymph', category: 'nymphs', url: 'nymphs.html' },
+        { name: 'Hares Ear Nymph', category: 'nymphs', url: 'nymphs.html' },
+        { name: 'Prince Nymph', category: 'nymphs', url: 'nymphs.html' },
+        { name: 'RS2 Emerger', category: 'emergers', url: 'emergers.html' },
+        { name: 'CDC Emerger', category: 'emergers', url: 'emergers.html' },
+        { name: 'Klinkhammer', category: 'emergers', url: 'emergers.html' },
+        { name: 'Zebra Midge', category: 'midges', url: 'midges.html' },
+        { name: 'Brassie', category: 'midges', url: 'midges.html' },
+        { name: 'WD-40 Midge', category: 'midges', url: 'midges.html' },
+        { name: 'BH Pheasant Tail', category: 'bh-nymphs', url: 'bh-nymphs.html' },
+        { name: 'BH Hares Ear', category: 'bh-nymphs', url: 'bh-nymphs.html' },
+        { name: 'BH Prince Nymph', category: 'bh-nymphs', url: 'bh-nymphs.html' },
+        { name: 'Tungsten Jig Nymph', category: 'tungsten-nymphs', url: 'tungsten-nymphs.html' },
+        { name: 'Tungsten Perdigon', category: 'tungsten-nymphs', url: 'tungsten-nymphs.html' },
+        { name: 'Tungsten Euro Nymph', category: 'tungsten-nymphs', url: 'tungsten-nymphs.html' },
+        { name: 'Foam Ant', category: 'terrestrials', url: 'terrestrials.html' },
+        { name: 'Foam Beetle', category: 'terrestrials', url: 'terrestrials.html' },
+        { name: 'Hopper Pattern', category: 'terrestrials', url: 'terrestrials.html' },
+        { name: 'Bob Brooks Special', category: 'bob-brooks', url: 'bob-brooks.html' },
+        { name: 'Shane Stalcup Original', category: 'shane-stalcup', url: 'shane-stalcup.html' },
+        { name: 'Skip Morris Emerger', category: 'skip-morris', url: 'skip-morris.html' },
+        { name: 'Rene Harrop CDC', category: 'rene-harrop', url: 'rene-harrop.html' },
+        { name: 'Woolly Bugger', category: 'streamers', url: 'streamers.html' },
+        { name: 'Muddler Minnow', category: 'streamers', url: 'streamers.html' },
+        { name: 'Clouser Minnow', category: 'streamers', url: 'streamers.html' },
+        { name: 'BH Woolly Bugger', category: 'bh-streamers', url: 'bh-streamers.html' },
+        { name: 'BH Zonker', category: 'bh-streamers', url: 'bh-streamers.html' },
+        { name: 'Czech Nymph Classic', category: 'czech-nymphs', url: 'czech-nymphs.html' },
+        { name: 'Vladi Worm', category: 'czech-nymphs', url: 'czech-nymphs.html' },
+        { name: 'Bass Bugger', category: 'warmwater', url: 'warmwater.html' },
+        { name: 'Crayfish Pattern', category: 'warmwater', url: 'warmwater.html' },
+        { name: 'Foam Popper', category: 'poppers', url: 'poppers.html' },
+        { name: 'Bass Popper', category: 'poppers', url: 'poppers.html' },
+        { name: 'Egg Sucking Leech', category: 'steelhead', url: 'steelhead.html' },
+        { name: 'Intruder', category: 'steelhead', url: 'steelhead.html' },
+        { name: 'Crazy Charlie', category: 'saltwater', url: 'saltwater.html' },
+        { name: 'Gotcha', category: 'saltwater', url: 'saltwater.html' },
+        { name: 'Lefty Deceiver', category: 'saltwater', url: 'saltwater.html' }
+      ];
+
+      // Set dynamic year in footer
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+      // Bubble/Snowfall Effect
+      function createBubbles() {
+        const bubblesContainer = document.getElementById('bubbles');
+        const bubbleCount = 50;
+
+        for (let i = 0; i < bubbleCount; i++) {
+          const bubble = document.createElement('div');
+          bubble.classList.add('bubble');
+          
+          const size = Math.random() * 20 + 5;
+          bubble.style.width = `${size}px`;
+          bubble.style.height = `${size}px`;
+          
+          bubble.style.left = `${Math.random() * 100}vw`;
+          
+          const duration = Math.random() * 20 + 10;
+          const delay = Math.random() * 10;
+          bubble.style.animationDuration = `${duration}s`;
+          bubble.style.animationDelay = `${delay}s`;
+          
+          bubble.style.opacity = Math.random() * 0.5 + 0.2;
+          
+          bubblesContainer.appendChild(bubble);
+        }
+      }
+
+      function initSearch() {
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        const searchToggle = document.getElementById('searchToggle');
+        const searchForm = document.getElementById('searchForm');
+        
+        if (!searchInput || !searchResults) return;
+
+        // Toggle search form
+        searchToggle.addEventListener('click', function(e) {
+          e.stopPropagation();
+          searchForm.classList.toggle('show');
+          if (searchForm.classList.contains('show')) {
+            searchInput.focus();
+          }
+        });
+
+        // Close search form when clicking outside
+        document.addEventListener('click', function(e) {
+          if (!searchForm.contains(e.target) && e.target !== searchToggle && !searchToggle.contains(e.target)) {
+            searchForm.classList.remove('show');
+          }
+        });
+
+        searchInput.addEventListener('input', function(e) {
+          const query = e.target.value.toLowerCase().trim();
+          
+          if (query.length < 2) {
+            searchResults.innerHTML = '<div class="search-result-item p-3 text-muted">Type to search products...</div>';
+            return;
+          }
+
+          const matches = products.filter(product => 
+            product.name.toLowerCase().includes(query) ||
+            product.category.toLowerCase().includes(query)
+          );
+
+          if (matches.length === 0) {
+            searchResults.innerHTML = '<div class="search-result-item p-3 text-muted">No products found</div>';
+            return;
+          }
+
+          const resultsHTML = matches.slice(0, 8).map(product => `
+            <a href="${product.url}" class="search-result-item">
+              <i class="fas fa-fish"></i>
+              <div>
+                <strong>${highlightMatch(product.name, query)}</strong>
+                <small class="d-block text-muted">${formatCategory(product.category)}</small>
+              </div>
+            </a>
+          `).join('');
+
+          searchResults.innerHTML = resultsHTML;
+        });
+
+        // Initialize search with placeholder
+        searchResults.innerHTML = '<div class="search-result-item p-3 text-muted">Type to search products...</div>';
+      }
+
+      function highlightMatch(text, query) {
+        const regex = new RegExp(`(${escapeRegex(query)})`, 'gi');
+        return text.replace(regex, '<mark>$1</mark>');
+      }
+
+      function escapeRegex(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      }
+
+      function formatCategory(category) {
+        return category.split('-').map(word => 
+          word.charAt(0).toUpperCase() + word.slice(1)
+        ).join(' ');
+      }
+
+      function initWhatsAppLinks() {
+        const whatsappLinks = document.querySelectorAll('[data-whatsapp]');
+        
+        whatsappLinks.forEach(link => {
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const customMessage = this.dataset.whatsapp || WHATSAPP_MESSAGE;
+            const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(customMessage)}`;
+            window.open(url, '_blank');
+          });
+        });
+      }
+
+      function initNavbarScroll() {
+        const navbar = document.querySelector('.navbar');
+        if (!navbar) return;
+
+        window.addEventListener('scroll', function() {
+          if (window.scrollY > 50) {
+            navbar.classList.add('navbar-scrolled');
+            navbar.style.backgroundColor = 'rgba(15, 23, 42, 0.98)';
+            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.15)';
+          } else {
+            navbar.classList.remove('navbar-scrolled');
+            navbar.style.backgroundColor = 'rgba(15, 23, 42, 0.95)';
+            navbar.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+          }
+        });
+      }
+
+      function initAnimations() {
+        // Fade-in animation on scroll
+        const fadeElements = document.querySelectorAll('.fade-in');
+        
+        const fadeInOnScroll = function() {
+          fadeElements.forEach(element => {
+            const elementTop = element.getBoundingClientRect().top;
+            const elementVisible = 150;
+            
+            if (elementTop < window.innerHeight - elementVisible) {
+              element.classList.add('visible');
+            }
+          });
+        };
+        
+        window.addEventListener('scroll', fadeInOnScroll);
+        fadeInOnScroll(); // Trigger on initial load
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+          anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              // Close search form if open
+              document.getElementById('searchForm').classList.remove('show');
+              
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+              });
+            }
+          });
+        });
+      }
+
+      function initCarousel() {
+        const carousel = new bootstrap.Carousel(document.getElementById('flyCarousel'), {
+          interval: 4000,
+          wrap: true,
+          pause: 'hover'
+        });
+      }
+
+      function initProductCardHover() {
+        // Product card hover effect enhancement
+        document.querySelectorAll('.product-card').forEach(card => {
+          card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-8px)';
+          });
+          
+          card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+          });
+        });
+      }
+
+      function init() {
+        createBubbles();
+        initSearch();
+        initWhatsAppLinks();
+        initNavbarScroll();
+        initAnimations();
+        initCarousel();
+        initProductCardHover();
+        
+        console.log('Premium Fishing Flies website initialized successfully!');
+        console.log('Total products available:', products.length);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
 </body>
 </html>
