@@ -139,6 +139,57 @@
       color: var(--accent-gold);
     }
 
+    /* MOBILE NAVBAR - matches home page styling */
+    @media (max-width: 576px) {
+      .navbar-brand {
+        font-size: 1.1rem;
+      }
+
+      .navbar-brand img {
+        height: 38px !important;
+      }
+    }
+
+    /* Mobile dropdown panel */
+    @media (max-width: 991px) {
+
+      .navbar-collapse.show,
+      .navbar-collapse.collapsing {
+        background: rgba(15, 23, 42, 0.99);
+        border-top: 2px solid var(--accent-gold);
+        border-radius: 0 0 12px 12px;
+        margin-top: 8px;
+        padding: 8px 0 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      }
+
+      .navbar-collapse .nav-link {
+        padding: 11px 20px !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        font-size: 0.95rem;
+      }
+
+      .navbar-collapse .dropdown-menu {
+        background: rgba(10, 20, 40, 0.98);
+        border: none;
+        border-left: 3px solid var(--accent-gold);
+        margin-left: 16px;
+        border-radius: 0 0 8px 8px;
+        box-shadow: none;
+      }
+
+      .navbar-collapse .dropdown-item {
+        color: rgba(255, 255, 255, 0.8);
+        padding: 10px 16px;
+        font-size: 0.88rem;
+      }
+
+      .navbar-collapse .dropdown-item:hover {
+        background: rgba(212, 175, 55, 0.15);
+        color: var(--accent-gold);
+      }
+    }
+
     /* Page Header */
     .page-header {
       background: linear-gradient(rgba(15, 23, 42, 0.95),
@@ -699,7 +750,7 @@
       <a class="navbar-brand" href="index.html">
         <img src="images/logo0.png" alt="Wilson Trout Fly" style="height: 70px; margin-right: 8px;">
         <span class="brand-full">Wilson Trout Fly</span>
-        <span class="brand-short">Wilson Trout Fly</span>
+        <span class="brand-short">Wilson Fly</span>
       </a>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
