@@ -811,6 +811,20 @@
         transform: rotate(360deg);
       }
     }
+
+    /* Ensure navbar items stay on same row as logo */
+    @media (min-width: 992px) {
+      .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+        flex-grow: 1;
+      }
+
+      .navbar-nav {
+        flex-direction: row;
+        margin-left: auto;
+      }
+    }
   </style>
 </head>
 
@@ -1029,7 +1043,7 @@
           id: 1,
           name: "Beldar Autumn Splendor",
           size: "4-12",
-          price: "Ksh 350",
+          price: "$350",
           description: "The most versatile streamer pattern ever created.",
           image: "images/streamers/beldar-autum-splendor.jpg",
         },
@@ -1037,7 +1051,7 @@
           id: 2,
           name: "Beldar Bugger",
           size: "4-10",
-          price: "Ksh 320",
+          price: "$320",
           description: "Classic sculpin pattern with deer hair head.",
           image: "images/streamers/Beldar-bugger.jpg",
         },
@@ -1045,7 +1059,7 @@
           id: 3,
           name: "Beldar Lemon",
           size: "2-8",
-          price: "Ksh 330",
+          price: "$330",
           description: "Weighted baitfish for deep water presentations.",
           image: "images/streamers/beldar-lemon.jpg",
         },
@@ -1053,7 +1067,7 @@
           id: 4,
           name: "Beldar Rubber",
           size: "2-8",
-          price: "Ksh 340",
+          price: "$340",
           description: "Rabbit strip streamer with lifelike swimming action.",
           image: "images/streamers/beldar-rubber.jpg",
         },
@@ -1061,7 +1075,7 @@
           id: 5,
           name: "BH Mini Bugger",
           size: "2-6",
-          price: "Ksh 310",
+          price: "$310",
           description: "Modern articulated sculpin pattern for big trout.",
           image: "images/streamers/bh-mini-bugger.jpg",
         },
@@ -1069,7 +1083,7 @@
           id: 6,
           name: "BH Pop's Bugger",
           size: "4-10",
-          price: "Ksh 325",
+          price: "$325",
           description: "Classic dark streamer pattern for all conditions.",
           image: "images/streamers/bh-pop-bugger.jpg",
         },
@@ -1077,7 +1091,7 @@
           id: 7,
           name: "BH Woolly Bugger",
           size: "4-10",
-          price: "Ksh 315",
+          price: "$315",
           description: "Feather wing streamer with incredible movement.",
           image: "images/streamers/bh-woolly-bugger.jpg",
         },
@@ -1085,7 +1099,7 @@
           id: 8,
           name: "CDC Sulphur Sparkle Dun",
           size: "4-10",
-          price: "Ksh 360",
+          price: "$360",
           description: "Bright attractor pattern for aggressive fish.",
           image: "images/streamers/CDC.jpg",
         },
@@ -1093,7 +1107,7 @@
           id: 9,
           name: "Flashabou Bugger",
           size: "2-8",
-          price: "Ksh 345",
+          price: "$345",
           description: "Articulated streamer with massive profile.",
           image: "images/streamers/flashabou-bugger.jpg",
         },
@@ -1101,7 +1115,7 @@
           id: 10,
           name: "BH Golden Stone",
           size: "2-6",
-          price: "Ksh 355",
+          price: "$355",
           description: "Fully articulated baitfish imitation.",
           image: "images/streamers/golden-stone.jpg",
         },
@@ -1109,7 +1123,7 @@
           id: 11,
           name: "Krystal Body Bugger",
           size: "2-4",
-          price: "Ksh 365",
+          price: "$365",
           description: "Large rabbit strip streamer for trophy fish.",
           image: "images/streamers/krystal-body-bugger.jpg",
         },
@@ -1117,7 +1131,7 @@
           id: 12,
           name: "Krystal Bugger",
           size: "2-6",
-          price: "Ksh 340",
+          price: "$340",
           description: "Heavy articulated streamer for deep pools.",
           image: "images/streamers/krystal-bugger.jpg",
         },
@@ -1125,7 +1139,7 @@
           id: 13,
           name: "Mac Gruber",
           size: "2-4",
-          price: "Ksh 370",
+          price: "$370",
           description: "Large articulated streamer with multiple joints.",
           image: "images/streamers/mac-gruber.jpg",
         },
@@ -1133,7 +1147,7 @@
           id: 14,
           name: "BH Mini Leech",
           size: "4-8",
-          price: "Ksh 320",
+          price: "$320",
           description: "Sculpin pattern with realistic appearance.",
           image: "images/streamers/mini-leech.jpg",
         },
@@ -1141,7 +1155,7 @@
           id: 15,
           name: "BH Pheasant Tail",
           size: "2-6",
-          price: "Ksh 315",
+          price: "$315",
           description: "Natural olive sculpin imitation.",
           image: "images/streamers/pheasant.jpg",
         },
@@ -1149,7 +1163,7 @@
           id: 16,
           name: "Salmodin Bugger",
           size: "2-8",
-          price: "Ksh 335",
+          price: "$335",
           description: "Long flowing marabou tail for maximum action.",
           image: "images/streamers/salmodin-bugger.jpg",
         },
@@ -1157,7 +1171,7 @@
           id: 17,
           name: "Tarnish BH Hare's",
           size: "4-10",
-          price: "Ksh 325",
+          price: "$325",
           description: "Muddler with marabou tail for added movement.",
           image: "images/streamers/tarnish.jpg",
         },
@@ -1165,7 +1179,7 @@
           id: 18,
           name: "Tungsten Possie Bugger",
           size: "4-8",
-          price: "Ksh 380",
+          price: "$380",
           description: "Zonker and Muddler hybrid pattern.",
           image: "images/streamers/tungsten-possie.jpg",
         },
@@ -1173,7 +1187,7 @@
           id: 19,
           name: "Twin Lake Special",
           size: "4-8",
-          price: "Ksh 345",
+          price: "$345",
           description: "Bugger pattern tied as a sculpin imitation.",
           image: "images/streamers/twin-lake.jpg",
         }

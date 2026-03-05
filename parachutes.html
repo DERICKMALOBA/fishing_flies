@@ -814,6 +814,20 @@
         transform: rotate(360deg);
       }
     }
+
+    /* Ensure navbar items stay on same row as logo */
+    @media (min-width: 992px) {
+      .navbar-collapse {
+        display: flex !important;
+        flex-basis: auto;
+        flex-grow: 1;
+      }
+
+      .navbar-nav {
+        flex-direction: row;
+        margin-left: auto;
+      }
+    }
   </style>
 </head>
 
@@ -1037,7 +1051,7 @@
           id: 1,
           name: "Parachute Adams",
           size: "12-20",
-          price: "Ksh 200",
+          price: "$200",
           description: "The classic Adams with high-visibility parachute design.",
           image: "images/parachutes/para-adams.jpg"
         },
@@ -1045,7 +1059,7 @@
           id: 2,
           name: "Para Hare's Ear",
           size: "12-18",
-          price: "Ksh 180",
+          price: "$180",
           description: "Attractive colors with excellent visibility.",
           image: "images/parachutes/para-hare's-ear.jpg"
         },
@@ -1053,7 +1067,7 @@
           id: 3,
           name: "Para Hivis Emerger",
           size: "16-22",
-          price: "Ksh 220",
+          price: "$220",
           description: "Essential Blue Wing Olive in parachute style.",
           image: "images/parachutes/para-hivis.jpg"
         },
@@ -1061,7 +1075,7 @@
           id: 4,
           name: "Para Hopper Tan",
           size: "14-18",
-          price: "Ksh 190",
+          price: "$190",
           description: "Pale Morning Dun with visible post.",
           image: "images/parachutes/para-hopper-tan.jpg"
         },
@@ -1069,7 +1083,7 @@
           id: 5,
           name: "Para Pale Morning",
           size: "14-18",
-          price: "Ksh 210",
+          price: "$210",
           description: "Perfect for summer sulfur hatches.",
           image: "images/parachutes/para-pale-morming.jpg"
         },
@@ -1077,7 +1091,7 @@
           id: 6,
           name: "Para X Peacock Body",
           size: "8-12",
-          price: "Ksh 250",
+          price: "$250",
           description: "Grasshopper pattern with visible post.",
           image: "images/parachutes/para-x.jpg"
         },
@@ -1085,7 +1099,7 @@
           id: 7,
           name: "Parachute Black Gnat",
           size: "12-16",
-          price: "Ksh 180",
+          price: "$180",
           description: "Classic attractor pattern with parachute hackle.",
           image: "images/parachutes/parachute-black-gnat.jpg"
         },
@@ -1093,7 +1107,7 @@
           id: 8,
           name: "Parachute Purple Adams",
           size: "12-18",
-          price: "Ksh 200",
+          price: "$200",
           description: "Caddis imitation with high-visibility post.",
           image: "images/parachutes/purple-adams.jpg"
         },
@@ -1101,7 +1115,7 @@
           id: 9,
           name: "Yellow Sallie Snowshoe",
           size: "12-16",
-          price: "Ksh 220",
+          price: "$220",
           description: "Early season mayfly pattern in parachute style.",
           image: "images/parachutes/yellow-sallie-snowshoe.jpg"
         },
@@ -1109,7 +1123,7 @@
           id: 10,
           name: "Yellow Sally Larimer",
           size: "12-16",
-          price: "Ksh 210",
+          price: "$210",
           description: "Light-colored mayfly with excellent floatation.",
           image: "images/parachutes/yellow-sally-larimer.jpg"
         },
