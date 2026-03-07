@@ -864,6 +864,7 @@
         background: rgba(212, 175, 55, 0.15);
         color: var(--accent-gold);
       }
+
     }
   </style>
 </head>
@@ -986,7 +987,7 @@
                 <i class="fas fa-search"></i>
               </button>
             </div>
-            <div class="results-count mt-2" id="resultsCount">
+            <div class="results-count mt-2" id="resultsCount" style="display: none;">
               Loading products...
             </div>
           </div>
@@ -1008,7 +1009,7 @@
   </main>
 
   <!-- Footer - UPDATED TO MATCH STREAMERS PAGE -->
-  <footer class="footer">
+  <footer class="footer" id="contact">
     <div class="container">
       <div class="row">
         <div class="col-lg-4 mb-4 mb-lg-0">
@@ -1088,7 +1089,7 @@
           id: 1,
           name: "Baetis Nymph",
           size: "12-20",
-          price: "$250",
+          price: "$2.50",
           description: "Classic mayfly nymph imitation with pheasant tail fibers.",
           image: "images/nymph/baetis-nymph.jpg"
         },
@@ -1096,7 +1097,7 @@
           id: 2,
           name: "Bead Head Copper",
           size: "10-18",
-          price: "$280",
+          price: "$2.80",
           description: "Buggy pattern with irresistible movement in water.",
           image: "images/nymph/bead-copper.jpg"
         },
@@ -1104,7 +1105,7 @@
           id: 3,
           name: "Bead Dead Black",
           size: "10-16",
-          price: "$270",
+          price: "$2.70",
           description: "Attractor nymph with distinctive white biot wings.",
           image: "images/nymph/bead-dead-black.jpg"
         },
@@ -1112,7 +1113,7 @@
           id: 4,
           name: "Bead Head Flash",
           size: "12-18",
-          price: "$290",
+          price: "$2.90",
           description: "Weighted attractor nymph with copper wire and flash.",
           image: "images/nymph/bead-head.jpg"
         },
@@ -1120,7 +1121,7 @@
           id: 5,
           name: "Buddy Stone",
           size: "10-16",
-          price: "$260",
+          price: "$2.60",
           description: "Classic peacock herl nymph pattern.",
           image: "images/nymph/beade-head.jpg"
         },
@@ -1128,7 +1129,7 @@
           id: 6,
           name: "B.H Copper Nymph",
           size: "4-10",
-          price: "$320",
+          price: "$3.20",
           description: "Large nymph pattern for big trout and steelhead.",
           image: "images/nymph/bh-copper-nymph.jpg"
         },
@@ -1136,7 +1137,7 @@
           id: 7,
           name: "B.H Peacock Nymph",
           size: "12-18",
-          price: "$250",
+          price: "$2.50",
           description: "Green caddis larva imitation with realistic profile.",
           image: "images/nymph/bh-peacock.jpg"
         },
@@ -1144,7 +1145,7 @@
           id: 8,
           name: "B.H Gilled Nymph",
           size: "16-22",
-          price: "$240",
+          price: "$2.40",
           description: "Simple but deadly midge nymph pattern.",
           image: "images/nymph/bh-sh.jpg"
         },
@@ -1152,7 +1153,7 @@
           id: 9,
           name: "BTS Nymph",
           size: "10-16",
-          price: "$260",
+          price: "$2.60",
           description: "Attractive general purpose nymph pattern.",
           image: "images/nymph/bts-nymph.jpg"
         },
@@ -1160,7 +1161,7 @@
           id: 10,
           name: "Buggy Stone",
           size: "12-18",
-          price: "$270",
+          price: "$2.70",
           description: "Natural squirrel dubbing creates lifelike appearance.",
           image: "images/nymph/buggy-stone.jpg"
         },
@@ -1168,7 +1169,7 @@
           id: 11,
           name: "Case Caddis",
           size: "16-22",
-          price: "$230",
+          price: "$2.30",
           description: "Modern attractor nymph with rainbow flash.",
           image: "images/nymph/case-caddis.jpg"
         },
@@ -1176,7 +1177,7 @@
           id: 12,
           name: "Compara Nymph",
           size: "14-18",
-          price: "$250",
+          price: "$2.50",
           description: "Classic PTN with soft hackle for extra movement.",
           image: "images/nymph/compara.jpg"
         },
@@ -1184,7 +1185,7 @@
           id: 13,
           name: "Damsel Nymph",
           size: "18-22",
-          price: "$220",
+          price: "$2.20",
           description: "Simple but effective tiny midge pattern.",
           image: "images/nymph/damsel-nymph.jpg"
         },
@@ -1192,7 +1193,7 @@
           id: 14,
           name: "Gilled Nymph",
           size: "12-18",
-          price: "$260",
+          price: "$2.60",
           description: "European style weighted competition nymph.",
           image: "images/nymph/Gilled-nymph.jpg"
         },
@@ -1200,7 +1201,7 @@
           id: 15,
           name: "Green Drake Nymph",
           size: "6-12",
-          price: "$300",
+          price: "$3.00",
           description: "Stonefly imitation with rubber legs for action.",
           image: "images/nymph/green-drake.jpg"
         },
@@ -1208,7 +1209,7 @@
           id: 16,
           name: "Half Black Nymph",
           size: "18-22",
-          price: "$220",
+          price: "$2.20",
           description: "Midge pattern with flashy disco tinsel.",
           image: "images/nymph/half-black.jpg"
         },
@@ -1216,7 +1217,7 @@
           id: 17,
           name: "Hydropsyche Czech",
           size: "14-18",
-          price: "$270",
+          price: "$2.70",
           description: "Scud/sowbug imitation for tailwaters.",
           image: "images/nymph/hydropsyche.jpg"
         },
@@ -1224,7 +1225,7 @@
           id: 18,
           name: "Killer Mayfly",
           size: "12-18",
-          price: "$260",
+          price: "$2.60",
           description: "Realistic caddis pupa imitation.",
           image: "images/nymph/killer-mayfly.jpg"
         },
@@ -1232,7 +1233,7 @@
           id: 19,
           name: "Magnymphico PMD",
           size: "18-22",
-          price: "$240",
+          price: "$2.40",
           description: "Tiny black midge pattern for selective fish.",
           image: "images/nymph/magnymphico.jpg"
         },
@@ -1240,7 +1241,7 @@
           id: 20,
           name: "March Brown",
           size: "16-22",
-          price: "$250",
+          price: "$2.50",
           description: "Colorful attractor midge pattern.",
           image: "images/nymph/march-brown.jpg"
         },
@@ -1248,7 +1249,7 @@
           id: 21,
           name: "Mayfly Nymph",
           size: "16-22",
-          price: "$240",
+          price: "$2.40",
           description: "Small mayfly nymph imitation.",
           image: "images/nymph/mayfly-nymph.jpg"
         },
@@ -1256,7 +1257,7 @@
           id: 22,
           name: "Miracle Nymph",
           size: "8-12",
-          price: "$280",
+          price: "$2.80",
           description: "Large stonefly imitation with rubber legs.",
           image: "images/nymph/miracle-nymph.jpg"
         },
@@ -1264,7 +1265,7 @@
           id: 23,
           name: "Muskrat Nymph",
           size: "10-14",
-          price: "$250",
+          price: "$2.50",
           description: "Effective worm imitation in various colors.",
           image: "images/nymph/muskrat-nymph.jpg"
         },
@@ -1272,7 +1273,7 @@
           id: 24,
           name: "Prince Nymph",
           size: "12-18",
-          price: "$270",
+          price: "$2.70",
           description: "Weighted version of the classic Hare's Ear.",
           image: "images/nymph/prince-nymph.jpg"
         },
@@ -1280,7 +1281,7 @@
           id: 25,
           name: "Princes Tungsten Bead",
           size: "12-18",
-          price: "$290",
+          price: "$2.90",
           description: "Tungsten bead for faster sinking.",
           image: "images/nymph/princes-tungsten.jpg"
         },
@@ -1288,7 +1289,7 @@
           id: 26,
           name: "Tung Ready Baetis",
           size: "12-18",
-          price: "$280",
+          price: "$2.80",
           description: "Tungsten baetis nymph for deep pools.",
           image: "images/nymph/ready-baetis.jpg"
         },
@@ -1296,7 +1297,7 @@
           id: 27,
           name: "Rhyacophia Nymph",
           size: "12-18",
-          price: "$260",
+          price: "$2.60",
           description: "Free-living caddis larva imitation.",
           image: "images/nymph/rhyacophia.jpg"
         },
@@ -1304,7 +1305,7 @@
           id: 28,
           name: "Salvation Nymph",
           size: "12-18",
-          price: "$270",
+          price: "$2.70",
           description: "Versatile attractor pattern for all waters.",
           image: "images/nymph/salvation-nymph.jpg"
         },
@@ -1312,7 +1313,7 @@
           id: 29,
           name: "'Sexy' Hex Nymph",
           size: "12-18",
-          price: "$300",
+          price: "$3.00",
           description: "Large hexagenia nymph imitation.",
           image: "images/nymph/sexy-hex.jpg"
         },
@@ -1320,7 +1321,7 @@
           id: 30,
           name: "Stone Fly Nymph",
           size: "12-18",
-          price: "$280",
+          price: "$2.80",
           description: "Realistic stonefly pattern with rubber legs.",
           image: "images/nymph/stone-fly.jpg"
         },
@@ -1328,7 +1329,7 @@
           id: 31,
           name: "Swimming Carp Nymph",
           size: "12-18",
-          price: "$260",
+          price: "$2.60",
           description: "Effective carp fishing nymph pattern.",
           image: "images/nymph/swimming-carp.jpg"
         },
@@ -1336,7 +1337,7 @@
           id: 32,
           name: "Tungsten Trapper Nymph",
           size: "12-18",
-          price: "$290",
+          price: "$2.90",
           description: "Heavy tungsten nymph for fast sinking.",
           image: "images/nymph/tt-nymph.jpg"
         },
@@ -1344,7 +1345,7 @@
           id: 33,
           name: "Tungsten Jin Nymph",
           size: "12-18",
-          price: "$280",
+          price: "$2.80",
           description: "Euro-style competition nymph pattern.",
           image: "images/nymph/tungesten-jin.jpg"
         },
@@ -1352,7 +1353,7 @@
           id: 34,
           name: "Tungsten Trapper Nymph",
           size: "12-18",
-          price: "$290",
+          price: "$2.90",
           description: "Heavy pattern for deep water presentations.",
           image: "images/nymph/tungesten-trapper.jpg"
         },
@@ -1360,7 +1361,7 @@
           id: 35,
           name: "Tungsten Nymphicator",
           size: "12-18",
-          price: "$300",
+          price: "$3.00",
           description: "Indicative nymph for detecting subtle takes.",
           image: "images/nymph/tungsten-nymphicator.jpg"
         },
@@ -1368,7 +1369,7 @@
           id: 36,
           name: "Tungsten Rubber Leg Prince Nymph",
           size: "12-18",
-          price: "$310",
+          price: "$3.10",
           description: "Prince nymph with rubber legs and tungsten bead.",
           image: "images/nymph/tungsten-rubber.jpg"
         },
@@ -1376,7 +1377,7 @@
           id: 37,
           name: "Tungsten Wonder Nymph",
           size: "12-18",
-          price: "$290",
+          price: "$2.90",
           description: "All-around effective tungsten nymph.",
           image: "images/nymph/tungsten-wonder.jpg"
         },
@@ -1384,7 +1385,7 @@
           id: 38,
           name: "Ultimate Skip Nymph",
           size: "12-18",
-          price: "$270",
+          price: "$2.70",
           description: "Skip nymph pattern for technical waters.",
           image: "images/nymph/ultimate-skip.jpg"
         },
@@ -1392,7 +1393,7 @@
           id: 39,
           name: "UV Czech Nymph",
           size: "12-18",
-          price: "$280",
+          price: "$2.80",
           description: "UV-enhanced Czech nymph for visibility.",
           image: "images/nymph/uv-czech.jpg"
         },
@@ -1400,20 +1401,12 @@
           id: 40,
           name: "Ultra Damsel Nymph",
           size: "12-18",
-          price: "$260",
+          price: "$2.60",
           description: "Realistic damsel nymph imitation.",
           image: "images/nymph/ultra-damsel.jpg"
         }
       ];
 
-      // Fallback images for nymphs
-      const fallbackImages = [
-        "images/nymph/baetis-nymph.jpg",
-        "images/nymph/bead-copper.jpg",
-        "images/nymph/bead-dead-black.jpg",
-        "images/nymph/prince-nymph.jpg",
-        "images/nymph/green-drake.jpg"
-      ];
 
       // Pagination settings
       const itemsPerPage = 24;
@@ -1498,15 +1491,13 @@
           productCard.className = "product-grid-item";
           productCard.innerHTML = `
             <div class="product-img-container">
-              <img src="${product.image}" alt="${product.name}" class="img-fluid" 
-                   onerror="this.src='${fallbackImages[index % fallbackImages.length]}'; this.onerror=null;">
+              <img src="${product.image}" alt="${product.name}" class="img-fluid">
               <div class="product-img-placeholder" style="display: none;">
                 <i class="fas fa-bug"></i>
               </div>
             </div>
             <div class="product-grid-body">
               <h3 class="product-grid-title">${product.name}</h3>
-              <p class="product-description">${product.description}</p>
               <div class="product-grid-meta">
                 <span class="product-grid-price">${product.price}</span>
                 <span class="product-grid-sizes">Size: ${product.size}</span>
@@ -1520,7 +1511,7 @@
           productGrid.appendChild(productCard);
         });
 
-        updateResultsCount();
+        // updateResultsCount();
       }
 
       // Render pagination
@@ -1625,19 +1616,9 @@
 
       // Update results count
       function updateResultsCount() {
-        const start = (currentPage - 1) * itemsPerPage + 1;
-        const end = Math.min(
-          currentPage * itemsPerPage,
-          filteredProducts.length
-        );
-        const total = filteredProducts.length;
-
-        resultsCount.textContent = `Showing ${start}-${end} of ${total} products`;
-
-        if (searchInput.value.trim() !== "") {
-          resultsCount.textContent += ` for "${searchInput.value}"`;
-        }
+        return; // Disabled as requested
       }
+
 
       // Order product function
       window.orderProduct = function (productName, size, price) {

@@ -864,6 +864,7 @@
         background: rgba(212, 175, 55, 0.15);
         color: var(--accent-gold);
       }
+
     }
   </style>
 </head>
@@ -980,7 +981,7 @@
                 <i class="fas fa-search"></i>
               </button>
             </div>
-            <div class="results-count mt-2" id="resultsCount">
+            <div class="results-count mt-2" id="resultsCount" style="display: none;">
               Loading products...
             </div>
           </div>
@@ -1000,6 +1001,8 @@
       </div>
     </div>
   </main>
+
+
 
   <!-- Footer -->
   <footer class="footer" id="contact">
@@ -1083,278 +1086,271 @@
           id: 1,
           name: "Anchovy",
           size: "4-8",
-          price: "$250",
+          price: "$2.50",
           image: "images/saltwater/ANCHOVY.jpg",
         },
         {
           id: 2,
           name: "Andy Smith Bonefish",
           size: "4-8",
-          price: "$250",
+          price: "$2.50",
           image: "images/saltwater/andy-smith-bonefish.jpg",
         },
         {
           id: 3,
           name: "Bearded Clam",
           size: "1/0-4",
-          price: "$350",
+          price: "$3.50",
           image: "images/saltwater/bearded-clam.jpg",
         },
         {
           id: 4,
           name: "Bonejovi",
           size: "2-6",
-          price: "$450",
+          price: "$2.50",
           image: "images/saltwater/BONEJOVI.jpg",
         },
         {
           id: 5,
           name: "Chickabou Crab",
           size: "1/0-3/0",
-          price: "$400",
+          price: "$2.00",
           image: "images/saltwater/chickabou-crab.jpg",
         },
         {
           id: 6,
           name: "Chost Rider",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.00",
           image: "images/saltwater/chost-rider.jpg",
         },
         {
           id: 7,
           name: "chumbody's Baby",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.00",
           image: "images/saltwater/chumbody's-baby.jpg",
         },
         {
           id: 8,
           name: "Cockroach",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.00",
           image: "images/saltwater/COCKROACH.jpg",
         },
         {
           id: 9,
           name: "Crazy charlie",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.00",
           image: "images/saltwater/crazy-charlie.jpg",
         },
         {
           id: 10,
           name: "Crystal Popper",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.00",
           image: "images/saltwater/crystal-popper.jpg",
         },
         {
           id: 11,
           name: "CXI Special",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.00",
           image: "images/saltwater/CXI-SPECIAL.jpg",
         },
         {
           id: 12,
           name: "Dabloon",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.00",
           image: "images/saltwater/DABLOON.jpg",
         },
         {
           id: 13,
           name: "Deceiver",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.00",
           image: "images/saltwater/DECEIVER.jpg",
         },
         {
           id: 14,
           name: "Deep Minnow",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.00",
           image: "images/saltwater/DEEP-MINNOW.jpg",
         },
         {
           id: 15,
           name: "Devil Bunny",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.00",
           image: "images/saltwater/DEVIL-BUNNY.jpg",
         },
         {
           id: 16,
           name: "E.Z.MACK",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.00",
           image: "images/saltwater/E.Z.MACK.jpg",
         },
         {
           id: 17,
           name: "Eyed Fry",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.00",
           image: "images/saltwater/EYED-FRY.jpg",
         },
         {
           id: 18,
           name: "Flats Crab",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.00",
           image: "images/saltwater/FLATS-CRAB.jpg",
         },
         {
           id: 19,
           name: "Gotcha",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.10",
           image: "images/saltwater/GOTCHA.jpg",
         },
         {
           id: 20,
           name: "GRINGO CRAB",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.20",
           image: "images/saltwater/GRINGO-CRAB.jpg",
         },
         {
           id: 21,
           name: "GURGLER",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.30",
           image: "images/saltwater/GURGLER.jpg",
         },
         {
           id: 22,
           name: "Herring Pschedelic",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.10",
           image: "images/saltwater/HERRING-PSCHEDELIC.jpg",
         },
         {
           id: 23,
           name: "Imitator",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.20",
           image: "images/saltwater/IMITATOR.jpg",
         },
         {
           id: 24,
           name: "Joe Dirt",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.10",
           image: "images/saltwater/JOE-DIRT.jpg",
         },
         {
           id: 25,
           name: "Little MCFRY",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.20",
           image: "images/saltwater/LITTLE-MCFRY.jpg",
         },
         {
           id: 26,
           name: "Lorn of the Frys",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.10",
           image: "images/saltwater/LORN-OF-THE-FRYS.jpg",
         },
         {
           id: 27,
           name: "Mini Ceiver",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.20",
           image: "images/saltwater/MINI-CEIVER.jpg",
         },
         {
           id: 28,
           name: "Mole Crab",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.10",
           image: "images/saltwater/MOLE-CRAB.jpg",
         },
         {
           id: 29,
           name: "Money Crab",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.20",
           image: "images/saltwater/MONEY-CRAB.jpg",
         },
         {
           id: 30,
           name: "Near Nuthin",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.20",
           image: "images/saltwater/NEAR-NUTHIN.jpg",
         },
         {
           id: 31,
           name: "P Ditty",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.20",
           image: "images/saltwater/P-DITTY.jpg",
         },
         {
           id: 32,
           name: "Permit Crab",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.10",
           image: "images/saltwater/PERMIT-CRAB.jpg",
         },
         {
           id: 33,
           name: "Pimp Shrimp",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.10",
           image: "images/saltwater/PIMP-SHRIMP.jpg",
         },
         {
           id: 34,
           name: "Ratz Worm",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.30",
           image: "images/saltwater/RATZ-WORM.jpg",
         },
         {
           id: 35,
           name: "Razzler",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.10",
           image: "images/saltwater/RAZZLER.jpg",
         },
         {
           id: 36,
           name: "Red Dot",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.30",
           image: "images/saltwater/RED-DOT.jpg",
         },
         {
           id: 37,
           name: "RT.1 Special",
           size: "1/0-6",
-          price: "$300",
+          price: "$2.10",
           image: "images/saltwater/RT-1-SPECIAL.jpg",
         },
         {
           id: 38,
           name: "Sand Crab",
           size: "1/0-6",
-          price: "$300",
+          price: "$1.20",
           image: "images/saltwater/SAND-CRAB.jpg",
         }
       ];
 
       // Add fallback images
-      const fallbackImages = [
-        "images/saltwater/ANCHOVY.jpg",
-        "images/saltwater/GOTCHA.jpg",
-        "images/saltwater/crazy-charlie.jpg",
-        "images/saltwater/DECEIVER.jpg",
-        "images/saltwater/PERMIT-CRAB.jpg"
-      ];
 
       // Pagination settings
       const itemsPerPage = 24;
@@ -1436,14 +1432,13 @@
 
         pageProducts.forEach((product, index) => {
           // Use fallback image if main image doesn't exist
-          const imageUrl = product.image || fallbackImages[index % fallbackImages.length];
+          const imageUrl = product.image;
 
           const productCard = document.createElement("div");
           productCard.className = "product-grid-item";
           productCard.innerHTML = `
             <div class="product-img-container">
-              <img src="${imageUrl}" alt="${product.name}" class="img-fluid"
-                   onerror="this.src='${fallbackImages[index % fallbackImages.length]}'; this.onerror=null;">
+              <img src="${imageUrl}" alt="${product.name}" class="img-fluid">
               <div class="product-img-placeholder" style="display: none;">
                 <i class="fas fa-fish"></i>
               </div>
@@ -1463,7 +1458,7 @@
           productGrid.appendChild(productCard);
         });
 
-        updateResultsCount();
+        // updateResultsCount();
       }
 
       // Render pagination
@@ -1566,19 +1561,9 @@
 
       // Update results count
       function updateResultsCount() {
-        const start = (currentPage - 1) * itemsPerPage + 1;
-        const end = Math.min(
-          currentPage * itemsPerPage,
-          filteredProducts.length
-        );
-        const total = filteredProducts.length;
-
-        resultsCount.textContent = `Showing ${start}-${end} of ${total} products`;
-
-        if (searchInput.value.trim() !== "") {
-          resultsCount.textContent += ` for "${searchInput.value}"`;
-        }
+        return; // Disabled as requested
       }
+
 
       // Order product function
       window.orderProduct = function (productName, size, price) {
